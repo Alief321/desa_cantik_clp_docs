@@ -989,24 +989,6 @@
         }
       }
     },
-    "/test": {
-      "post": {
-        "tags": ["test-controller"],
-        "operationId": "test",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/klasifikasi": {
       "get": {
         "tags": ["classification-controller"],
