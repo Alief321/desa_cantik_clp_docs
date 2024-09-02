@@ -1,1005 +1,31 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.0",
   "info": {
-    "title": "OpenAPI definition",
-    "version": "v0"
+    "title": "Desa Cantik API",
+    "version": "1.0.0",
+    "description": "API documentation for Desa Cantik App"
   },
   "servers": [
     {
-      "url": "http://localhost:8080",
-      "description": "Generated server url"
+      "url": "http://localhost:3000/api",
+      "description": "Local development server"
     }
   ],
   "paths": {
-    "/statistical-classification/{id}": {
+    "/surveyPeriods": {
       "get": {
-        "tags": ["statistical-classification-controller"],
-        "operationId": "get",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
+        "summary": "Get all Survey Periods",
+        "operationId": "getSurveyPeriods",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A list of Survey Periods",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["statistical-classification-controller"],
-        "operationId": "updateStatisticalClassification",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatisticalClassificationDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": ["statistical-classification-controller"],
-        "operationId": "deleteStatisticalClassification",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": ["statistical-classification-controller"],
-        "operationId": "patchStatisticalClassification",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatisticalClassificationDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/statistical-classification-level/{id}": {
-      "get": {
-        "tags": ["statistical-classification-level-controller"],
-        "operationId": "getStatisticalClassificationLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationLevelDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["statistical-classification-level-controller"],
-        "operationId": "updateStatisticalClassificationLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatisticalClassificationLevelDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationLevelDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["statistical-classification-level-controller"],
-        "operationId": "deleteStatisticalClassificationLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "patch": {
-        "tags": ["statistical-classification-level-controller"],
-        "operationId": "patchStatisticalClassificationLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatisticalClassificationLevelDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationLevelDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/statistical-classification-items/{id}": {
-      "get": {
-        "tags": ["statistical-classification-item-controller"],
-        "operationId": "getStatisticalClassificationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationItemDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["statistical-classification-item-controller"],
-        "operationId": "updateStatisticalClassificationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatisticalClassificationItemDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationItemDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["statistical-classification-item-controller"],
-        "operationId": "deleteStatisticalClassificationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "patch": {
-        "tags": ["statistical-classification-item-controller"],
-        "operationId": "patchStatisticalClassificationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StatisticalClassificationItemDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatisticalClassificationItemDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/series/{id}": {
-      "get": {
-        "tags": ["classification-series-controller"],
-        "operationId": "get_1",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["classification-series-controller"],
-        "operationId": "updateClassificationSeries",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationSeriesDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationSeriesDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["classification-series-controller"],
-        "operationId": "deleteClassificationSeries",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": ["classification-series-controller"],
-        "operationId": "patchClassificationSeries",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationSeriesDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationSeriesDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/level/{id}": {
-      "get": {
-        "tags": ["level-controller"],
-        "operationId": "getLevelById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["level-controller"],
-        "operationId": "updateLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LevelDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/LevelDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["level-controller"],
-        "operationId": "deleteLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "patch": {
-        "tags": ["level-controller"],
-        "operationId": "patchLevel",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LevelDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/LevelDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/item/{id}": {
-      "get": {
-        "tags": ["classification-item-controller"],
-        "operationId": "get_2",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["classification-item-controller"],
-        "operationId": "updateClassificationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationItemDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationItemDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": ["classification-item-controller"],
-        "operationId": "patchClassificationItem",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationItemDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationItemDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/family/{id}": {
-      "get": {
-        "tags": ["classification-family-controller"],
-        "operationId": "get_3",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["classification-family-controller"],
-        "operationId": "updateClassificationFamily",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationFamilyDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationFamilyDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["classification-family-controller"],
-        "operationId": "deleteClassificationFamily",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": ["classification-family-controller"],
-        "operationId": "patchClassificationFamily",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationFamilyDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationFamilyDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/classification-item-history/{id}": {
-      "get": {
-        "tags": ["classification-item-history-controller"],
-        "operationId": "getClassificationItemHistory",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": ["classification-item-history-controller"],
-        "operationId": "updateClassificationItemHistory",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationItemHistoryDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationItemHistoryDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["classification-item-history-controller"],
-        "operationId": "deleteClassificationItemHistory",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "patch": {
-        "tags": ["classification-item-history-controller"],
-        "operationId": "patchClassificationItemHistory",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClassificationItemHistoryDto"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClassificationItemHistoryDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/klasifikasi": {
-      "get": {
-        "tags": ["classification-controller"],
-        "operationId": "getClassification",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SurveyPeriod"
+                  }
                 }
               }
             }
@@ -1007,25 +33,24 @@
         }
       },
       "post": {
-        "tags": ["classification-controller"],
-        "operationId": "createClassification",
+        "summary": "Create a new Survey Period",
+        "operationId": "createSurveyPeriod",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ClassificationDto"
+                "$ref": "#/components/schemas/SurveyPeriod"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Survey Period created",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/SurveyPeriod"
                 }
               }
             }
@@ -1033,124 +58,136 @@
         }
       }
     },
-    "/statistical-classification": {
+    "/surveyPeriods/{id}": {
       "get": {
-        "tags": ["statistical-classification-controller"],
-        "operationId": "index",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/statistical-classification-level": {
-      "get": {
-        "tags": ["statistical-classification-level-controller"],
-        "operationId": "getAllStatisticalClassificationLevels",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticalClassificationLevelDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/statistical-classification-items": {
-      "get": {
-        "tags": ["statistical-classification-item-controller"],
-        "operationId": "getAllStatisticalClassificationItems",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticalClassificationItemDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/series": {
-      "get": {
-        "tags": ["classification-series-controller"],
-        "operationId": "index_1",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/level": {
-      "get": {
-        "tags": ["level-controller"],
-        "operationId": "getAllLevel",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/klasifikasi/{id}": {
-      "get": {
-        "tags": ["classification-controller"],
-        "operationId": "getClassificationById",
+        "summary": "Get a Survey Period by ID",
+        "operationId": "getSurveyPeriodById",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A Survey Period",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/SurveyPeriod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Survey Period not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Survey Period",
+        "operationId": "updateSurveyPeriod",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SurveyPeriod"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Survey Period updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SurveyPeriod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Survey Period not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Survey Period",
+        "operationId": "deleteSurveyPeriod",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Survey Period deleted"
+          },
+          "404": {
+            "description": "Survey Period not found"
+          }
+        }
+      }
+    },
+    "/forms": {
+      "get": {
+        "summary": "Get all Forms",
+        "operationId": "getForms",
+        "responses": {
+          "200": {
+            "description": "A list of Forms",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Form"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Form",
+        "operationId": "createForm",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Form"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Form created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Form"
                 }
               }
             }
@@ -1158,110 +195,93 @@
         }
       }
     },
-    "/klasifikasi/lock": {
+    "/forms/{id}": {
       "get": {
-        "tags": ["classification-controller"],
-        "operationId": "getLockedClassification",
+        "summary": "Get a Form by ID",
+        "operationId": "getFormById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A Form",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/Form"
                 }
+              }
+            }
+          },
+          "404": {
+            "description": "Form not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Form",
+        "operationId": "updateForm",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Form"
               }
             }
           }
-        }
-      }
-    },
-    "/klasifikasi/approve": {
-      "get": {
-        "tags": ["classification-controller"],
-        "operationId": "getApprovedClassification",
+        },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Form updated",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/Form"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Form not found"
           }
         }
-      }
-    },
-    "/klasifikasi/active": {
-      "get": {
-        "tags": ["classification-controller"],
-        "operationId": "getActiveClassification",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
+      },
+      "delete": {
+        "summary": "Delete a Form",
+        "operationId": "deleteForm",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
           }
-        }
-      }
-    },
-    "/item": {
-      "get": {
-        "tags": ["classification-item-controller"],
-        "operationId": "index_2",
+        ],
         "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/family": {
-      "get": {
-        "tags": ["classification-family-controller"],
-        "operationId": "index_3",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/classification-item-history": {
-      "get": {
-        "tags": ["classification-item-history-controller"],
-        "operationId": "getAllClassificationItemHistory",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
+          "204": {
+            "description": "Form deleted"
+          },
+          "404": {
+            "description": "Form not found"
           }
         }
       }
@@ -1269,604 +289,513 @@
   },
   "components": {
     "schemas": {
-      "ClassificationFamily": {
+      "SurveyPeriod": {
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64"
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
           },
           "name": {
             "type": "string"
           },
-          "description": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "ClassificationSeries": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "abbreviation": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "type": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "owner": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "maintainer": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classificationFamily": {
-            "$ref": "#/components/schemas/ClassificationFamily"
-          },
-          "createdAt": {
+          "startDate": {
             "type": "string",
             "format": "date-time"
           },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "StatisticalClassificationDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "validFrom": {
+          "endDate": {
             "type": "string",
             "format": "date-time"
           },
-          "validTo": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classificationSeries": {
-            "$ref": "#/components/schemas/ClassificationSeries"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "Level": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "levelNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "codeStructureType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "codeStructure": {
-            "type": "string"
-          },
-          "codeExample": {
-            "type": "string"
-          },
-          "classificationSeries": {
-            "$ref": "#/components/schemas/ClassificationSeries"
-          }
-        }
-      },
-      "StatisticalClassification": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "validFrom": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "validTo": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "classificationSeries": {
-            "$ref": "#/components/schemas/ClassificationSeries"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "StatisticalClassificationLevelDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "statisticalClassification": {
-            "$ref": "#/components/schemas/StatisticalClassification"
-          },
-          "level": {
-            "$ref": "#/components/schemas/Level"
-          },
-          "numberOfItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "ClassificationItem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "level": {
-            "$ref": "#/components/schemas/Level"
-          },
-          "itemCreationVersion": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classificationSeries": {
-            "$ref": "#/components/schemas/ClassificationSeries"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "StatisticalClassificationItemDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "statisticalClassification": {
-            "$ref": "#/components/schemas/StatisticalClassification"
-          },
-          "classificationItem": {
-            "$ref": "#/components/schemas/ClassificationItem"
-          },
-          "parent": {
-            "$ref": "#/components/schemas/ClassificationItem"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "ClassificationFamilyDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "ClassificationSeriesDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "abbreviation": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "type": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "owner": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "maintainer": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classificationFamily": {
-            "$ref": "#/components/schemas/ClassificationFamilyDto"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "LevelDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "levelNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "codeStructureType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "codeStructure": {
-            "type": "string"
-          },
-          "codeExample": {
-            "type": "string"
-          },
-          "classificationSeries": {
-            "$ref": "#/components/schemas/ClassificationSeries"
-          }
-        }
-      },
-      "ClassificationItemDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "level": {
-            "$ref": "#/components/schemas/Level"
-          },
-          "itemCreationVersion": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "classificationSeries": {
-            "$ref": "#/components/schemas/ClassificationSeries"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "ClassificationItemHistoryDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "classificationItem": {
-            "$ref": "#/components/schemas/ClassificationItem"
-          },
-          "statisticalClassification": {
-            "$ref": "#/components/schemas/StatisticalClassification"
-          },
-          "correspondClassificationItem": {
-            "$ref": "#/components/schemas/ClassificationItem"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "changeType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "version": {
-            "type": "string"
-          },
-          "active": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "baseId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exist": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "ClassificationDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "classFamily": {
-            "$ref": "#/components/schemas/ClassificationFamilyDto"
-          },
-          "classSeries": {
-            "$ref": "#/components/schemas/ClassificationSeriesDto"
-          },
-          "statClass": {
-            "$ref": "#/components/schemas/StatisticalClassificationDto"
-          },
-          "level": {
+          "is_verif_end": {
+            "type": "boolean",
+            "default": false
+          },
+          "forms": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LevelDto"
+              "$ref": "#/components/schemas/Form"
+            }
+          }
+        },
+        "description": "A model representing a Survey Period to collect a data"
+      },
+      "Form": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["BELUM_DIVERIFIKASI", "DIKIRIM_ULANG", "DITOLAK", "DISETUJUI"]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "surveyPeriodId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "surveyPeriod": {
+            "$ref": "#/components/schemas/SurveyPeriod"
+          },
+          "blokI": {
+            "$ref": "#/components/schemas/BlokI"
+          },
+          "blokII": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlokII"
             }
           },
-          "classItem": {
+          "blokIII": {
+            "$ref": "#/components/schemas/BlokIII"
+          },
+          "blokIV": {
+            "$ref": "#/components/schemas/BlokIV"
+          },
+          "blokV": {
+            "$ref": "#/components/schemas/BlokV"
+          },
+          "blokVI": {
+            "$ref": "#/components/schemas/BlokVI"
+          },
+          "blokVII": {
+            "$ref": "#/components/schemas/BlokVII"
+          },
+          "blokVIII": {
+            "$ref": "#/components/schemas/BlokVIII"
+          }
+        },
+        "description": "A model representing a Form application (kuesioner sent by user)"
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          },
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "uniqueItems": true
+          },
+          "noHp": {
+            "type": "string",
+            "format": "phone",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "description": "User's password (will be hashed by the server before storage)"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["Pencacah", "Verifikator", "Admin"]
+          },
+
+          "id_pengawas": {
+            "type": "integer",
+            "nullable": true
+          },
+          "supervisedUsers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ClassificationItemDto"
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "supervisor": {
+            "$ref": "#/components/schemas/User"
+          },
+          "beban_kerja": {
+            "type": "integer",
+            "default": 0
+          },
+          "reset_token": {
+            "type": "string",
+            "nullable": true,
+            "description": "Token used for password reset"
+          },
+          "is_active": {
+            "type": "boolean",
+            "default": true,
+            "description": "User's active status"
+          },
+          "is_acces_raw": {
+            "type": "boolean",
+            "default": false,
+            "description": "User's can acces raw data?"
+          },
+          "forms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Form"
+            }
+          }
+        },
+        "description": "A model representing a User application"
+      },
+      "BlokI": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          },
+          "dusun": {
+            "type": "string"
+          },
+          "rw": {
+            "type": "string"
+          },
+          "rt": {
+            "type": "string"
+          },
+          "alamat": {
+            "type": "string"
+          },
+          "koordinat": {
+            "type": "string"
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int64",
+            "uniqueItems": true
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
+          }
+        },
+        "description": "A model representing Blok I data (Keterangan Tempat)."
+      },
+      "BlokII": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          },
+          "nama": {
+            "type": "string"
+          },
+          "jenis_kelamin": {
+            "type": "string",
+            "enum": ["L", "P"]
+          },
+          "no_hp": {
+            "type": "string",
+            "format": "phone",
+            "nullable": true
+          },
+          "no_kk": {
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 16
+          },
+          "nik": {
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 16
+          },
+          "tempat_lahir": {
+            "type": "string"
+          },
+          "tanggal_lahir": {
+            "type": "string",
+            "format": "date"
+          },
+          "status_kk": {
+            "type": "string",
+            "enum": ["KEPALA_KELUARGA", "ISTRI", "ANAK", "CUCU", "MENANTU", "MERTUA", "ORANG_TUA", "FAMILI_LAIN"]
+          },
+          "status_kawin": {
+            "type": "string",
+            "enum": ["BELUM_KAWIN", "KAWIN", "CERAI_HIDUP", "CERAI_MATI"]
+          },
+          "kondisi_fisik": {
+            "type": "string",
+            "format": "textarea",
+            "example": "Disabilitas Tunarungu, Disabilitas Tunawicara, Disabilitas Tunanetra, Disabilitas Tunadaksa, Disabilitas Mental, Disabilitas Intelektual, Gangguan Jiwa",
+            "description": "Kondisi fisik yang dimiliki oleh responden (bisa banyak dipisahkan oleh koma)",
+            "enum": ["Normal", "Disabilitas Tunarungu", "Disabilitas Tunawicara", "Disabilitas Tunanetra", "Disabilitas Tunadaksa", "Disabilitas Mental", "Disabilitas Intelektual", "Gangguan Jiwa"]
+          },
+          "agama": {
+            "type": "string",
+            "enum": ["ISLAM", "KRISTEN", "KATOLIK", "HINDU", "BUDHA", "KHONGHUCU", "KEPERCAYAAN"]
+          },
+          "pendidikan": {
+            "type": "string",
+            "enum": ["BELUM_atau_TIDAK_SEKOLAH", "BELUM_TAMAT_SD", "SD", "SMP", "SMA", "DI_atau_DII", "DIII", "DIV_atau_S1", "MAGISTER_atau_S2", "S3"]
+          },
+          "pekerjaan": {
+            "type": "string",
+            "enum": [
+              "BELUM_atau_TIDAK_BEKERJA",
+              "MENGURUS_RUMAH_TANGGA",
+              "PELAJAR_atau_MAHASISWA",
+              "BURUH_HARIAN_LEPAS",
+              "KARYAWAN_SWASTA",
+              "KARYAWAN_HONORER",
+              "KARYAWAN_BUMN_atau_BUMD",
+              "PENSIUNAN",
+              "PETANI_PEMILIK_LAHAN",
+              "PETANI_PENYEWA_LAHAN",
+              "BURUH_TANI",
+              "PEDAGANG_BARANG",
+              "PEDAGANG_MAKANAN",
+              "WIRASWASTA",
+              "PEGAWAI_NEGERI_SIPIL",
+              "DOKTER",
+              "TENAGA_KESEHATAN",
+              "TNI_atau_POLRI",
+              "PERANGKAT_DESA",
+              "PENSIUNAN",
+              "GURU_SEKOLAH_UMUM",
+              "GURU_AGAMA",
+              "NELAYAN_PEMILIK_PERAHU",
+              "NELAYAN_PENYEWA_PERHAU",
+              "LAINNYA"
+            ]
+          },
+          "pendapatan": {
+            "type": "string",
+            "enum": ["Rp0_sd_400000", "Rp400001_sd_800000", "Rp800001_sd_1200000", "Rp1200001_sd_1600000", "Rp1600001_sd_2000000", "Lebih_dari_Rp2000000"]
+          },
+          "pengeluaran": {
+            "type": "string",
+            "enum": ["Rp0_sd_400000", "Rp400001_sd_800000", "Rp800001_sd_1200000", "Rp1200001_sd_1600000", "Rp1600001_sd_2000000", "Lebih_dari_Rp2000000"]
+          },
+          "ibu": {
+            "type": "string"
+          },
+          "ayah": {
+            "type": "string"
+          },
+          "kartu_identitas": {
+            "type": "string",
+            "format": "textarea",
+            "example": "Akta Kelahiran, KTP, Kartu Identitas Anak (KIA), KK",
+            "description": "Kartu identitas yang dimiliki oleh responden (bisa banyak dipisahkan oleh koma)",
+            "enum": ["Tidak Memiliki", "Akta Kelahiran", "KTP", "Kartu Identitas Anak (KIA)", "KK"]
+          },
+          "jaminan_kesehatan": {
+            "type": "string",
+            "format": "textarea",
+            "example": "PBI_JKN, JKN_MANDIRI, JKN_PEMBERI_KERJA, JAMKES_LAINNYA",
+            "description": "Jaminan kesehatan yang dimiliki oleh responden (bisa banyak dipisahkan oleh koma)",
+            "enum": ["Tidak Memiliki", "PBI_JKN", "JKN_MANDIRI", "JKN_PEMBERI_KERJA", "JAMKES_LAINNYA"]
+          },
+          "penyakit_kronis": {
+            "type": "string",
+            "format": "textarea",
+            "example": "Asma, Jantung, Diabetes, TBC, Stroke, Kanker/Tumor, Gagal_ginjal, HIV/AIDS, Lainnya",
+            "description": "Penyakit kronis yang dimiliki oleh responden (bisa banyak dipisahkan oleh koma)",
+            "enum": ["Tidak ada", "Asma", "Jantung", "Diabetes", "TBC", "Stroke", "Kanker/Tumor", "Gagal_ginjal", "HIV/AIDS", "Lainnya"]
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
+          },
+          "is_under_four": {
+            "type": "boolean"
+          },
+          "order": {
+            "type": "integer"
+          }
+        },
+        "description": "A model representing Blok II data (Informasi Rinci Anggota Keluarga). The combination of 'formId' and 'order' must be unique."
+      },
+      "BlokIII": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          },
+          "status_rumah": {
+            "type": "string",
+            "enum": ["MILIK_SENDIRI", "KONTRAK_atau_SEWA", "BEBAS_SEWA_atau_MENUMPANG", "RUMAH_DINAS"]
+          },
+          "bukti_kepemilikan": {
+            "type": "string",
+            "enum": ["SHM_an_SENDIRI", "SHM_an_ANGGOTA_KELUARGA", "SHM_an_BUKAN_ANGGOTA_KELUARGA", "GIRIK_atau_LETTER_C"]
+          },
+          "luas_bangunan": {
+            "type": "string",
+            "format": "number"
+          },
+          "luas_lahan": {
+            "type": "string",
+            "format": "number"
+          },
+          "jumlah_kamar": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dinding_terluas": {
+            "type": "string",
+            "enum": ["TEMBOK", "KAYU_atau_PAPAN", "ANYAMAN_BAMBU", "GYSUM_atau_GCR_atau_CALCIBOARD", "LAINNYA"]
+          },
+          "lantai_terluas": {
+            "type": "string",
+            "enum": ["KERAMIK", "MARMER_atau_GRANIT", "TANAH", "UBIN_atau_TEGEL", "PLESTER_SEMEN", "LAINNYA"]
+          },
+          "atap_terluas": {
+            "type": "string",
+            "enum": ["GENTENG", "ASBES", "SENG", "JERAMI_atau_IJUK", "BETON", "LAINNYA"]
+          },
+          "jamban": {
+            "type": "string",
+            "enum": ["MILIK_SENDIRI", "NUMPANG", "TIDAK_ADA"]
+          },
+          "daya_listrik": {
+            "type": "string",
+            "enum": ["D_450_watt", "D_900_watt", "D_1300_watt", "D_2200_watt", "Lebih_dari_2200_watt", "NYAMBUNG", "BELUM_ADA_ALIRAN_LISTRIK"]
+          },
+          "sumber_air_minum": {
+            "type": "string",
+            "enum": ["AIR_KEMASAN_BERMEREK", "AIR_ISI_ULANG", "SUMUR_TERLINDUNGI", "SUMUR_BOR_atau_POMPA", "SUNGAI_atau_IRIGASI", "PDAM_atau_LEDING"]
+          },
+          "bahan_bakar_masak": {
+            "type": "string",
+            "enum": ["GAS_3_KG", "GAS_5_koma_5_KG", "GAS_12_KG", "KAYU_BAKAR", "LAINNYA"]
+          },
+          "foto1": {
+            "type": "string",
+            "format": "uri",
+            "description": "Foto Rumah Responden (Depan)"
+          },
+          "foto2": {
+            "type": "string",
+            "format": "uri",
+            "description": "Foto Rumah Responden (Samping)"
+          },
+          "foto3": {
+            "type": "string",
+            "format": "uri",
+            "description": "Foto Rumah Responden (Dalam)"
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int64",
+            "uniqueItems": true
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
+          }
+        },
+        "description": "A model representing Blok III data (Kondisi Rumah)."
+      },
+      "BlokIV": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          }
+        }
+      },
+      "BlokV": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BlokVI": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BlokVII": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BlokVIII": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
             }
           }
         }
