@@ -382,9 +382,6 @@
           },
           "blokVII": {
             "$ref": "#/components/schemas/BlokVII"
-          },
-          "blokVIII": {
-            "$ref": "#/components/schemas/BlokVIII"
           }
         },
         "description": "A model representing a Form application (kuesioner sent by user)"
@@ -566,6 +563,7 @@
               "MENGURUS_RUMAH_TANGGA",
               "PELAJAR_atau_MAHASISWA",
               "BURUH_HARIAN_LEPAS",
+              "BURUH_PABRIK",
               "KARYAWAN_SWASTA",
               "KARYAWAN_HONORER",
               "KARYAWAN_BUMN_atau_BUMD",
@@ -729,76 +727,1041 @@
             "type": "integer",
             "readOnly": true,
             "description": "Auto-incremented unique identifier"
+          },
+          "bansos_bnpt_post": {
+            "type": "boolean"
+          },
+          "pkh": {
+            "type": "boolean"
+          },
+          "blt": {
+            "type": "boolean"
+          },
+          "kis": {
+            "type": "boolean"
+          },
+          "pip": {
+            "type": "boolean"
+          },
+          "sepeda": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "motor": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "mobil": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "perahu": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "tv": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "ac": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "mesin_cuci": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "hp": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "water_heater": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "wifi": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "hp_non_smartphone": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "tab": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "laptop_komputer": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "perhiasan_under_10_gr": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "perhiasan_above_10_gr": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5"]
+          },
+          "sapi": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5", "Lebih_dari_20"]
+          },
+          "kambing": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5", "Lebih_dari_20"]
+          },
+          "unggas": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5", "Lebih_dari_20"]
+          },
+          "ikan": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "Satu_1", "Dua_2", "Tiga_3", "Empat_4", "Lima_5", "Lebih_dari_5", "Lebih_dari_20"]
+          },
+          "rumah_lain": {
+            "type": "boolean",
+            "description": "Rumah lain yang dimiliki oleh responden"
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int64",
+            "uniqueItems": true
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
           }
-        }
+        },
+        "description": "A model representing Blok IV data (Kepemilikan Asset)."
       },
       "BlokV": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
           },
-          "description": {
-            "type": "string"
+          "is_lahan": {
+            "type": "boolean"
           },
-          "data": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+          "luas_lahan": {
+            "type": "string",
+            "format": "number",
+            "nullable": true,
+            "description": "Luas lahan yang dimiliki oleh responden (kosong jika is_lahan = false)"
+          },
+          "pemanfaatan_lahan": {
+            "type": "string",
+            "format": "textarea",
+            "example": "SAYURAN, BUAH_BUAHAN, KAYU_KERAS, KANDANG_TERNAK",
+            "description": "Pemanfaatan lahan yang dimiliki oleh responden (bisa banyak dipisahkan oleh koma) (kosong jika is_lahan = false)",
+            "enum": ["SAYURAN", "BUAH_BUAHAN", "KAYU_KERAS", "KANDANG_TERNAK"],
+            "nullable": true
+          },
+          "sawah": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "kurang_dari_500Mpersegi", "Lebih_dari_500Mpersegi"]
+          },
+          "tanah": {
+            "type": "string",
+            "enum": ["Tidak_Punya", "kurang_dari_500Mpersegi", "Lebih_dari_500Mpersegi"]
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int64",
+            "uniqueItems": true
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
           }
-        }
+        },
+        "description": "A model representing Blok V data (Kepemilikan Lahan)."
       },
       "BlokVI": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
           },
-          "description": {
-            "type": "string"
+          "is_usaha": {
+            "type": "boolean"
           },
-          "data": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+          "nama_pemilik": {
+            "type": "string",
+            "nullable": true,
+            "description": "Nama pemilik usaha (kosong jika is_usaha = false)"
+          },
+          "kepemilikan_usaha": {
+            "type": "string",
+            "enum": ["SENDIRI", "BERSAMA"],
+            "nullable": true,
+            "description": "Kepemilikan usaha (kosong jika is_usaha = false)"
+          },
+          "alamat_usaha": {
+            "type": "string",
+            "nullable": true,
+            "description": "Alamat usaha (kosong jika is_usaha = false)"
+          },
+          "jenis_usaha": {
+            "type": "string",
+            "nullable": true,
+            "description": "Jenis usaha (kosong jika is_usaha = false)"
+          },
+          "jumlah_pekerja": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Jumlah pekerja yang bekerja di usaha (kosong jika is_usaha = false)"
+          },
+          "omzet_usaha": {
+            "type": "string",
+            "nullable": true,
+            "format": "number",
+            "description": "Omzet usaha per bulan (kosong jika is_usaha = false)"
+          },
+          "formId": {
+            "type": "integer",
+            "format": "int64",
+            "uniqueItems": true
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
           }
-        }
+        },
+        "description": "A model representing Blok VI data (Usaha)."
       },
       "BlokVII": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
           },
-          "description": {
-            "type": "string"
+          "catatan": {
+            "type": "string",
+            "format": "textarea",
+            "nullable": true,
+            "description": "Catatan tambahan"
           },
-          "data": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+          "formid": {
+            "type": "integer",
+            "format": "int64",
+            "uniqueItems": true
+          },
+          "form": {
+            "$ref": "#/components/schemas/Form"
           }
-        }
+        },
+        "description": "A model representing Blok VII data (Catatan)."
       },
-      "BlokVIII": {
+      "aggregateddataindividu": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier",
+            "example": 1
           },
-          "description": {
+          "surveyPeriodId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dusun": {
             "type": "string"
           },
-          "data": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+          "rw": {
+            "type": "string"
+          },
+          "rt": {
+            "type": "string"
+          },
+          "total_individu": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+          },
+          "total_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_perempuan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kepala_keluarga": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kepala_keluarga_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_istri": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_anak": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_cucu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_menantu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_mertua": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_orang_tua": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_famili_lain": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_0_4": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_0_4_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_5_9": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_5_9_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_10_14": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_10_14_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_15_19": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_15_19_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_20_24": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_20_24_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_25_29": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_25_29_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_30_34": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_30_34_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_35_39": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_35_39_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_40_44": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_40_44_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_45_49": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_45_49_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_50_54": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_50_54_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_55_59": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_55_59_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_60_64": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_60_64_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_65_69": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_65_69_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_70_74": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_70_74_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_75_79": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_75_79_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_above_80": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_above_80_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_0_14": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_0_14_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_15_64": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_15_64_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_above_65": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_usia_above_65_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_belum_kawin": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_belum_kawin_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kawin": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kawin_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_cerai_hidup": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_cerai_hidup_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_cerai_mati": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_cerai_mati_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_islam": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_islam_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kristen": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kristen_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_katolik": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_katolik_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_hindu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_hindu_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_budha": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_budha_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_konghucu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_konghucu_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kepercayaan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kepercayaan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_sekolah": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_sekolah_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_belum_tamat_sd": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_belum_tamat_sd_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_sd": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_sd_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_sltp_smp": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_sltp_smp_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_slta_sma": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_slta_sma_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_d1_d2": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_d1_d2_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_d3": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_d3_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_d4_s1": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_d4_s1_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_s2": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_s2_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_s3": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_s3_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_perguruan_tinggi": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_normal": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tunarungu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tunawicara": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tunanetra": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tunadaksa": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_disabilitas_mental": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_disabilitas_intelektual": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_gangguan_jiwa": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_punya_nik": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_punya_nik": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_punya_no_hp": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_punya_no_hp_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_punya_no_hp": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_punya_no_hp_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_belum_bekerja": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_belum_bekerja_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_mengurus_rumah_tangga": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_mengurus_rumah_tangga_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pelajar": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pelajar_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_harian_lepas": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_harian_lepas_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_pabrik": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_pabrik_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_karyawan_swasta": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_karyawan_swasta_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_karyawan_honorer": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_karyawan_honorer_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_karyawan_bumn_bumd": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_karyawan_bumn_bumd_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_petani_pemilik_lahan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_petani_pemilik_lahan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_petani_penyewa_lahan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_petani_penyewa_lahan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_tani": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_tani_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pedagang_barang": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pedagang_barang_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pedagang_makanan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pedagang_makanan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_wiraswasta": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_wiraswasta_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pns": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pns_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_dokter": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_dokter_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tenaga_kesehatan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tenaga_kesehatan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tni_polri": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total tni_polri_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total perangkat desa": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_perangkat_desa_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pensiunan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pensiunan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_guru_sekolah_umum": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_guru_sekolah_umum_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_guru_agama": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_guru_agama_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_nelayan_pemilik_perahu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_nelayan_pemilik_perahu_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_nelayan_penyewa_perahu": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_nelayan_penyewa_perahu_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_nelayan": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_buruh_nelayan_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_lainnya": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_lainnya_laki_laki": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_memiliki_jamkes": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pbi_jkn": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_jkn_mandiri": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_jkn_pemberi_kerja": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_jamkes_lainnya": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_memiliki_penyakit": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_asma": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_Jantung": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_Diabetes": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_TBC": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_Stroke": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_Kanker_tumor": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_Gagal_ginjal": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_HIV_AIDS": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_penyakit_lainnya": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_tidak_memiliki_kartu_identitas": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_ktp": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_akta_kelahiran": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kartu_keluarga": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_kartu_identitas_anak": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pendapatan_0_400000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pendapatan_400000_800000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pendapatan_800000_1200000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pendapatan_1200000_1600000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pendapatan_1600000_2000000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pendapatan_lebih_2000000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pengeluaran_0_400000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pengeluaran_400000_800000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pengeluaran_800000_1200000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pengeluaran_1200000_1600000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pengeluaran_1600000_2000000": {
+            "type": "string",
+            "format": "decimal"
+          },
+          "total_pengeluaran_lebih_2000000": {
+            "type": "string",
+            "format": "decimal"
           }
-        }
+        },
+        "description": "A view to agregate individual data from blok I and blok II"
+      },
+      "agregateddatakeluarga": {
+        "type": "object",
+        "properties": {
+          "schema": {}
+        },
+        "description": "A view to agregate family data from blok blok I, III, IV, V, and VI,"
       }
     }
   }
