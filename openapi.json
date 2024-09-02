@@ -986,771 +986,771 @@
             "default": 0
           },
           "total_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_perempuan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kepala_keluarga": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kepala_keluarga_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_istri": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_anak": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_cucu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_menantu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_mertua": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_orang_tua": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_famili_lain": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_0_4": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_0_4_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_5_9": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_5_9_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_10_14": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_10_14_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_15_19": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_15_19_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_20_24": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_20_24_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_25_29": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_25_29_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_30_34": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_30_34_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_35_39": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_35_39_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_40_44": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_40_44_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_45_49": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_45_49_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_50_54": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_50_54_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_55_59": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_55_59_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_60_64": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_60_64_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_65_69": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_65_69_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_70_74": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_70_74_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_75_79": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_75_79_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_above_80": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_above_80_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_0_14": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_0_14_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_15_64": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_15_64_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_above_65": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_usia_above_65_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_belum_kawin": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_belum_kawin_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kawin": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kawin_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_cerai_hidup": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_cerai_hidup_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_cerai_mati": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_cerai_mati_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_islam": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_islam_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kristen": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kristen_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_katolik": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_katolik_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_hindu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_hindu_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_budha": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_budha_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_konghucu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_konghucu_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kepercayaan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kepercayaan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_sekolah": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_sekolah_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_belum_tamat_sd": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_belum_tamat_sd_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_sd": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_sd_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_sltp_smp": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_sltp_smp_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_slta_sma": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_slta_sma_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_d1_d2": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_d1_d2_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_d3": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_d3_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_d4_s1": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_d4_s1_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_s2": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_s2_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_s3": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_s3_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_perguruan_tinggi": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_normal": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tunarungu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tunawicara": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tunanetra": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tunadaksa": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_disabilitas_mental": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_disabilitas_intelektual": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_gangguan_jiwa": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_punya_nik": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_punya_nik": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_punya_no_hp": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_punya_no_hp_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_punya_no_hp": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_punya_no_hp_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_belum_bekerja": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_belum_bekerja_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_mengurus_rumah_tangga": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_mengurus_rumah_tangga_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pelajar": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pelajar_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_harian_lepas": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_harian_lepas_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_pabrik": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_pabrik_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_karyawan_swasta": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_karyawan_swasta_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_karyawan_honorer": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_karyawan_honorer_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_karyawan_bumn_bumd": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_karyawan_bumn_bumd_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_petani_pemilik_lahan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_petani_pemilik_lahan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_petani_penyewa_lahan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_petani_penyewa_lahan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_tani": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_tani_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pedagang_barang": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pedagang_barang_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pedagang_makanan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pedagang_makanan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_wiraswasta": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_wiraswasta_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pns": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pns_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_dokter": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_dokter_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tenaga_kesehatan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tenaga_kesehatan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tni_polri": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total tni_polri_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total perangkat desa": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_perangkat_desa_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pensiunan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pensiunan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_guru_sekolah_umum": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_guru_sekolah_umum_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_guru_agama": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_guru_agama_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_nelayan_pemilik_perahu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_nelayan_pemilik_perahu_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_nelayan_penyewa_perahu": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_nelayan_penyewa_perahu_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_nelayan": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_buruh_nelayan_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_lainnya": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_lainnya_laki_laki": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_memiliki_jamkes": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pbi_jkn": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_jkn_mandiri": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_jkn_pemberi_kerja": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_jamkes_lainnya": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_memiliki_penyakit": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_asma": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_Jantung": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_Diabetes": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_TBC": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_Stroke": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_Kanker_tumor": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_Gagal_ginjal": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_HIV_AIDS": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_penyakit_lainnya": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_tidak_memiliki_kartu_identitas": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_ktp": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_akta_kelahiran": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kartu_keluarga": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_kartu_identitas_anak": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pendapatan_0_400000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pendapatan_400000_800000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pendapatan_800000_1200000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pendapatan_1200000_1600000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pendapatan_1600000_2000000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pendapatan_lebih_2000000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pengeluaran_0_400000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pengeluaran_400000_800000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pengeluaran_800000_1200000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pengeluaran_1200000_1600000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pengeluaran_1600000_2000000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           },
           "total_pengeluaran_lebih_2000000": {
-            "type": "string",
+            "type": "number",
             "format": "decimal"
           }
         },
@@ -1759,7 +1759,1272 @@
       "agregateddatakeluarga": {
         "type": "object",
         "properties": {
-          "schema": {}
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1,
+            "readOnly": true,
+            "description": "Auto-incremented unique identifier"
+          },
+          "surveyPeriodId": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1,
+            "description": "Foeign key for the survey period."
+          },
+          "dusun": {
+            "type": "string",
+            "example": "Buaran",
+            "description": "Name of the Dusun."
+          },
+          "rw": {
+            "type": "string",
+            "example": "01",
+            "description": "RW identifier."
+          },
+          "rt": {
+            "type": "string",
+            "example": "02",
+            "description": "RT identifier."
+          },
+          "total_forms": {
+            "type": "integer",
+            "format": "int64",
+            "example": 10,
+            "description": "Total number of forms submitted."
+          },
+          "total_milik_sendiri": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total ownership of property by self."
+          },
+          "total_kontrak_sewa": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total rented or leased property."
+          },
+          "total_bekas_sewa": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total bebas sewa property (typo)."
+          },
+          "total_rumah_dinas": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total official residences."
+          },
+          "total_shm_sendiri": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with SHM owned by self."
+          },
+          "total_shm_anggota_keluarga": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with SHM owned by family members."
+          },
+          "total_shm_bukan_anggota_keluarga": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with SHM owned by non-family members."
+          },
+          "total_girik_letter_c": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with Girik/Letter C."
+          },
+          "total_keramik": {
+            "type": "number",
+            "format": "decimal",
+            "example": 6,
+            "description": "Total properties with ceramic flooring."
+          },
+          "total_marmer_granit": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with marble or granite flooring."
+          },
+          "total_tanah": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with earth flooring."
+          },
+          "total_ubin_tegel": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with tiled flooring."
+          },
+          "total_plester_semen": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with cement plaster flooring."
+          },
+          "total_lainnya_lantai_terluas": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with other types of flooring."
+          },
+          "total_tembok": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties with wall construction."
+          },
+          "total_kayu_papan": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with wooden plank construction."
+          },
+          "total_anyaman_bambu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with bamboo woven construction."
+          },
+          "total_gypsum_grc_caliciboard": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with gypsum or GRC board construction."
+          },
+          "total_lainnya_dinding_terluas": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with other types of wall construction."
+          },
+          "total_asbes": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with asbestos roofing."
+          },
+          "total_genteng": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties with tile roofing."
+          },
+          "total_seng": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with zinc roofing."
+          },
+          "total_jerami_atau_ijuk": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with straw or palm fiber roofing."
+          },
+          "total_beton": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with concrete roofing."
+          },
+          "total_lainnya_atap_terluas": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with other types of roofing."
+          },
+          "total_jamban_sendiri": {
+            "type": "number",
+            "format": "decimal",
+            "example": 6,
+            "description": "Total properties with own toilet facilities."
+          },
+          "total_jamban_numpang": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with shared toilet facilities."
+          },
+          "total_jamban_tidak_ada": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties without toilet facilities."
+          },
+          "total_450_watt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties with 450-watt electricity."
+          },
+          "total_900_watt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with 900-watt electricity."
+          },
+          "total_1300_watt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with 1300-watt electricity."
+          },
+          "total_2200_watt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with 2200-watt electricity."
+          },
+          "total_Lebih_dari_2200_watt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than 2200-watt electricity."
+          },
+          "total_listrik_nyambung": {
+            "type": "number",
+            "format": "decimal",
+            "example": 8,
+            "description": "Total properties with connected electricity."
+          },
+          "total_tidak_ada_listrik": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties without electricity."
+          },
+          "total_air_kemasan_bermerek": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties using branded bottled water."
+          },
+          "total_air_isi_ulang": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties using refilled water."
+          },
+          "total_sumur_terlindungi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties using protected wells."
+          },
+          "total_sumur_bor_atau_pompa": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties using bore wells or pumps."
+          },
+          "total_sungai_atau_irigasi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties using river or irrigation water."
+          },
+          "total_pdam_atau_leding": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties using other sources of drinking water."
+          },
+          "total_gas_3_kg": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties with 3 kg gas cylinders."
+          },
+          "total_gas_5_5_kg": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with 5.5 kg gas cylinders."
+          },
+          "total_gas_12_kg": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with 12 kg gas cylinders."
+          },
+          "total_kayu_bakar": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties using firewood."
+          },
+          "total_bahan_bakar_lainnya": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties using other types of fuel."
+          },
+          "total_menerima_bansos_bnpt_pos": {
+            "type": "number",
+            "format": "decimal",
+            "example": 7,
+            "description": "Total properties receiving BNPT POS social assistance."
+          },
+          "total_tidak_menerima_bansos_bnpt_pos": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties not receiving BNPT POS social assistance."
+          },
+          "total_menerima_pkh": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties receiving PKH assistance."
+          },
+          "total_tidak_menerima_pkh": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties not receiving PKH assistance."
+          },
+          "total_menerima_blt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties receiving BLT assistance."
+          },
+          "total_tidak_menerima_blt": {
+            "type": "number",
+            "format": "decimal",
+            "example": 6,
+            "description": "Total properties not receiving BLT assistance."
+          },
+          "total_menerima_kis": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties receiving KIS assistance."
+          },
+          "total_tidak_menerima_kis": {
+            "type": "number",
+            "format": "decimal",
+            "example": 7,
+            "description": "Total properties not receiving KIS assistance."
+          },
+          "total_menerima_pip": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties receiving PIP assistance."
+          },
+          "total_tidak_menerima_pip": {
+            "type": "number",
+            "format": "decimal",
+            "example": 8,
+            "description": "Total properties not receiving PIP assistance."
+          },
+          "total_tidak_punya_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties without bicycles."
+          },
+          "total_punya_satu_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one bicycle."
+          },
+          "total_punya_dua_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two bicycles."
+          },
+          "total_punya_tiga_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three bicycles."
+          },
+          "total_punya_empat_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four bicycles."
+          },
+          "total_punya_lima_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five bicycles."
+          },
+          "total_punya_lebih_dari_lima_sepeda": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five bicycles."
+          },
+          "total_tidak_punya_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 6,
+            "description": "Total properties without motorcycles."
+          },
+          "total_punya_satu_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties with one motorcycle."
+          },
+          "total_punya_dua_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two motorcycles."
+          },
+          "total_punya_tiga_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three motorcycles."
+          },
+          "total_punya_empat_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four motorcycles."
+          },
+          "total_punya_lima_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five motorcycles."
+          },
+          "total_punya_lebih_dari_lima_motor": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five motorcycles."
+          },
+          "total_tidak_punya_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 7,
+            "description": "Total properties without cars."
+          },
+          "total_punya_satu_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one car."
+          },
+          "total_punya_dua_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two cars."
+          },
+          "total_punya_tiga_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three cars."
+          },
+          "total_punya_empat_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four cars."
+          },
+          "total_punya_lima_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five cars."
+          },
+          "total_punya_lebih_dari_lima_mobil": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five cars."
+          },
+          "total_tidak_punya_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties without boats."
+          },
+          "total_punya_satu_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with one boat."
+          },
+          "total_punya_dua_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with two boats."
+          },
+          "total_punya_tiga_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with three boats."
+          },
+          "total_punya_empat_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four boats."
+          },
+          "total_punya_lima_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five boats."
+          },
+          "total_punya_lebih_dari_lima_perahu": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five boats."
+          },
+          "total_tidak_punya_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties without TVs."
+          },
+          "total_punya_satu_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one TV."
+          },
+          "total_punya_dua_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two TVs."
+          },
+          "total_punya_tiga_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three TVs."
+          },
+          "total_punya_empat_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four TVs."
+          },
+          "total_punya_lima_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five TVs."
+          },
+          "total_punya_lebih_dari_lima_tv": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five TVs."
+          },
+          "total_tidak_punya_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 6,
+            "description": "Total properties without air conditioners."
+          },
+          "total_punya_satu_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties with one air conditioner."
+          },
+          "total_punya_dua_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two air conditioners."
+          },
+          "total_punya_tiga_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three air conditioners."
+          },
+          "total_punya_empat_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four air conditioners."
+          },
+          "total_punya_lima_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five air conditioners."
+          },
+          "total_punya_lebih_dari_lima_ac": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five air conditioners."
+          },
+          "total_tidak_punya_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties without washing machines."
+          },
+          "total_punya_satu_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one washing machine."
+          },
+          "total_punya_dua_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two washing machines."
+          },
+          "total_punya_tiga_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three washing machines."
+          },
+          "total_punya_empat_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four washing machines."
+          },
+          "total_punya_lima_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five washing machines."
+          },
+          "total_punya_lebih_dari_lima_mesin_cuci": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five washing machines."
+          },
+          "total_tidak_punya_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties without mobile phones."
+          },
+          "total_punya_satu_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one mobile phone."
+          },
+          "total_punya_dua_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two mobile phones."
+          },
+          "total_punya_tiga_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three mobile phones."
+          },
+          "total_punya_empat_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four mobile phones."
+          },
+          "total_punya_lima_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five mobile phones."
+          },
+          "total_punya_lebih_dari_lima_hp": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five mobile phones."
+          },
+          "total_tidak_punya_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties without water heaters."
+          },
+          "total_punya_satu_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with one water heater."
+          },
+          "total_punya_dua_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with two water heaters."
+          },
+          "total_punya_tiga_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with three water heaters."
+          },
+          "total_punya_empat_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four water heaters."
+          },
+          "total_punya_lima_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five water heaters."
+          },
+          "total_punya_lebih_dari_lima_water_heater": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five water heaters."
+          },
+          "total_tidak_punya_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties without Wi-Fi."
+          },
+          "total_punya_satu_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one Wi-Fi connection."
+          },
+          "total_punya_dua_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two Wi-Fi connections."
+          },
+          "total_punya_tiga_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three Wi-Fi connections."
+          },
+          "total_punya_empat_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four Wi-Fi connections."
+          },
+          "total_punya_lima_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five Wi-Fi connections."
+          },
+          "total_punya_lebih_dari_lima_wifi": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five Wi-Fi connections."
+          },
+          "total_tidak_punya_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties without non-smartphone mobile phones."
+          },
+          "total_punya_satu_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one non-smartphone mobile phone."
+          },
+          "total_punya_dua_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two non-smartphone mobile phones."
+          },
+          "total_punya_tiga_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three non-smartphone mobile phones."
+          },
+          "total_punya_empat_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four non-smartphone mobile phones."
+          },
+          "total_punya_lima_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five non-smartphone mobile phones."
+          },
+          "total_punya_lebih_dari_lima_hp_non_smartphone": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five non-smartphone mobile phones."
+          },
+          "total_tidak_punya_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 4,
+            "description": "Total properties without tablets."
+          },
+          "total_punya_satu_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with one tablet."
+          },
+          "total_punya_dua_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with two tablets."
+          },
+          "total_punya_tiga_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with three tablets."
+          },
+          "total_punya_empat_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four tablets."
+          },
+          "total_punya_lima_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five tablets."
+          },
+          "total_punya_lebih_dari_lima_tab": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five tablets."
+          },
+          "total_tidak_punya_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 5,
+            "description": "Total properties without laptops or computers."
+          },
+          "total_punya_satu_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 3,
+            "description": "Total properties with one laptop or computer."
+          },
+          "total_punya_dua_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 2,
+            "description": "Total properties with two laptops or computers."
+          },
+          "total_punya_tiga_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 1,
+            "description": "Total properties with three laptops or computers."
+          },
+          "total_punya_empat_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with four laptops or computers."
+          },
+          "total_punya_lima_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with five laptops or computers."
+          },
+          "total_punya_lebih_dari_lima_laptop_komputer": {
+            "type": "number",
+            "format": "decimal",
+            "example": 0,
+            "description": "Total properties with more than five laptops or computers."
+          },
+          "total_tidak_punya_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 4,
+            "description": "Total properties without jewelry under 10 grams."
+          },
+          "total_punya_satu_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 2,
+            "description": "Total properties with one jewelry item under 10 grams."
+          },
+          "total_punya_dua_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 1,
+            "description": "Total properties with two jewelry items under 10 grams."
+          },
+          "total_punya_tiga_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with three jewelry items under 10 grams."
+          },
+          "total_punya_empat_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with four jewelry items under 10 grams."
+          },
+          "total_punya_lima_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with five jewelry items under 10 grams."
+          },
+          "total_punya_lebih_dari_lima_perhiasan_under_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with more than five jewelry items under 10 grams."
+          },
+          "total_tidak_punya_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 3,
+            "description": "Total properties without jewelry above 10 grams."
+          },
+          "total_punya_satu_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 2,
+            "description": "Total properties with one jewelry item above 10 grams."
+          },
+          "total_punya_dua_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 1,
+            "description": "Total properties with two jewelry items above 10 grams."
+          },
+          "total_punya_tiga_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with three jewelry items above 10 grams."
+          },
+          "total_punya_empat_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with four jewelry items above 10 grams."
+          },
+          "total_punya_lima_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with five jewelry items above 10 grams."
+          },
+          "total_punya_lebih_dari_lima_perhiasan_above_10_gr": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with more than five jewelry items above 10 grams."
+          },
+          "total_tidak_punya_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 4,
+            "description": "Total properties without cows."
+          },
+          "total_punya_satu_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 2,
+            "description": "Total properties with one cow."
+          },
+          "total_punya_dua_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 1,
+            "description": "Total properties with two cows."
+          },
+          "total_punya_tiga_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with three cows."
+          },
+          "total_punya_empat_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with four cows."
+          },
+          "total_punya_lima_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with five cows."
+          },
+          "total_punya_lebih_dari_lima_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with more than five cows."
+          },
+          "total_punya_lebih_dari_20_sapi": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with more than 20 cows."
+          },
+          "total_tidak_punya_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 5,
+            "description": "Total properties without goats."
+          },
+          "total_punya_satu_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 3,
+            "description": "Total properties with one goat."
+          },
+          "total_punya_dua_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 2,
+            "description": "Total properties with two goats."
+          },
+          "total_punya_tiga_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 1,
+            "description": "Total properties with three goats."
+          },
+          "total_punya_empat_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with four goats."
+          },
+          "total_punya_lima_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with five goats."
+          },
+          "total_punya_lebih_dari_lima_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with more than five goats."
+          },
+          "total_punya_lebih_dari_20_kambing": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "Total properties with more than 20 goats."
+          },
+          "total_tidak_punya_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without poultry"
+          },
+          "total_punya_satu_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with one poultry"
+          },
+          "total_punya_dua_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with two poultry"
+          },
+          "total_punya_tiga_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with three poultry"
+          },
+          "total_punya_empat_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with four poultry"
+          },
+          "total_punya_lima_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with five poultry"
+          },
+          "total_punya_lebih_dari_lima_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with more than five poultry"
+          },
+          "total_punya_lebih_dari_20_unggas": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with more than 20 poultry"
+          },
+          "total_tidak_punya_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without fish"
+          },
+          "total_punya_satu_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with one fish"
+          },
+          "total_punya_dua_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with two fish"
+          },
+          "total_punya_tiga_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with three fish"
+          },
+          "total_punya_empat_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with four fish"
+          },
+          "total_punya_lima_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with five fish"
+          },
+          "total_punya_lebih_dari_lima_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with more than five fish"
+          },
+          "total_punya_lebih_dari_20_ikan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with more than 20 fish"
+          },
+          "total_tidak_punya_rumah_lain": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without an additional house"
+          },
+          "total_punya_rumah_lain": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with an additional house"
+          },
+          "total_tidak_punya_lahan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without land"
+          },
+          "total_punya_lahan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with land"
+          },
+          "total_pemanfaatan_sayuran": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households utilizing vegetables"
+          },
+          "total_pemanfaatan_buah_buahan": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households utilizing fruits"
+          },
+          "total_pemanfaatan_kayu_keras": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households utilizing hardwood"
+          },
+          "total_pemanfaatan_kandang_ternak": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households utilizing livestock pens"
+          },
+          "total_tidak_punya_sawah": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without rice fields"
+          },
+          "total_punya_kurang_dari_500Mpersegi_sawah": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with less than 500 square meters of rice fields"
+          },
+          "total_punya_lebih_dari_500Mpersegi_sawah": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with more than 500 square meters of rice fields"
+          },
+          "total_tidak_punya_tanah": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without land"
+          },
+          "total_punya_kurang_dari_500Mpersegi_tanah": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with less than 500 square meters of land"
+          },
+          "total_punya_lebih_dari_500Mpersegi_tanah": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with more than 500 square meters of land"
+          },
+          "total_tidak_punya_usaha": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households without a business"
+          },
+          "total_punya_usaha": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with a business"
+          },
+          "total_kepemilikan_usaha_sendiri": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with self-owned business"
+          },
+          "total_kepemilikan_usaha_bersama": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Total number of households with a jointly-owned business"
+          }
         },
         "description": "A view to agregate family data from blok blok I, III, IV, V, and VI,"
       }
