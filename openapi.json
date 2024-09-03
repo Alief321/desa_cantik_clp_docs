@@ -12,6 +12,1155 @@
     }
   ],
   "paths": {
+    "/auth": {
+      "get": {
+        "summary": "Get authentication from token",
+        "description": "Get user authentication from token (cookie) (its not working yet in this docs)",
+        "tags": ["Auth"],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User authenticated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Authenticated"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "John Doe"
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "admin"
+                        },
+                        "cookie": {
+                          "type": "string",
+                          "example": "jwt_token_example"
+                        },
+                        "is_acces_raw": {
+                          "type": "boolean",
+                          "example": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed due to missing or invalid token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "No token provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found or inactive",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/changePassword": {
+      "patch": {
+        "summary": "Update user password",
+        "description": "Updates the password of a user with the given ID after validating the old password.",
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 23
+            },
+            "description": "ID of the user whose password is to be updated"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldPassword": {
+                    "type": "string",
+                    "description": "The current password of the user",
+                    "example": "oldpassword123"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "The new password to be set",
+                    "example": "newpassword456"
+                  }
+                },
+                "required": ["oldPassword", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password updated successfully"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "user": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/User"
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "forms": {
+                              "type": "object",
+                              "example": null,
+                              "description": "forms is excluded"
+                            },
+                            "supervisedUsers": {
+                              "type": "object",
+                              "example": null,
+                              "description": "supervisedUsers is excluded"
+                            },
+                            "supervisor": {
+                              "type": "object",
+                              "example": null,
+                              "description": "supervisor is excluded"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Old Password is not correct"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/checkUserForm": {
+      "get": {
+        "summary": "Check if a user is allowed to access a form",
+        "description": "Checks if a user is allowed to access a form based on the form ID and user ID.",
+        "tags": ["User", "Auth"],
+        "parameters": [
+          {
+            "name": "idForm",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 21
+            },
+            "description": "ID of the form to be accessed"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 11
+            },
+            "description": "ID of the user trying to access the form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is allowed to access the form",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User allowed"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "idForm is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "idForm is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form or User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Form not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User not allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "User not allowed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard": {
+      "get": {
+        "summary": "Get aggregated survey data",
+        "description": "Fetches aggregated survey data based on various parameters and visualizes it.",
+        "tags": ["Visualize"],
+        "parameters": [
+          {
+            "name": "surveyPeriodId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            },
+            "description": "The ID of the survey period."
+          },
+          {
+            "name": "desa",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "True"
+            },
+            "description": "If Not null then the data will be aggregated by village."
+          },
+          {
+            "name": "dusun",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Buaran"
+            },
+            "description": "The name of the hamlet. Use '0' if not applicable."
+          },
+          {
+            "name": "rt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "01"
+            },
+            "description": "The neighborhood association. Use '0' if not applicable."
+          },
+          {
+            "name": "rw",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "01"
+            },
+            "description": "The community association. Use '0' if not applicable."
+          },
+          {
+            "name": "kode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "101"
+            },
+            "description": "The code for visualization."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved aggregated data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dataaggeregat": {
+                      "type": "object",
+                      "description": "Aggregated data result"
+                    }
+                  },
+                  "required": ["dataaggeregat"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Survey Period ID is required"
+                    }
+                  },
+                  "required": ["error"]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  },
+                  "required": ["message"]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Survey Period ID not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Survey Period ID not found"
+                    }
+                  },
+                  "required": ["error"]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error message"
+                    }
+                  },
+                  "required": ["message"]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ]
+      }
+    },
+    "/forgotPassword/resetPassword": {
+      "post": {
+        "summary": "Reset a user's password",
+        "tags": ["User"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "newPassword123"
+                  },
+                  "token": {
+                    "type": "string",
+                    "example": "resetToken123"
+                  }
+                },
+                "required": ["email", "password", "token"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password reset successful"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid token or email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token or email"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/forgotPassword/sendReset": {
+      "post": {
+        "summary": "Request password reset and send email with reset token",
+        "tags": ["User"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@example.com"
+                  }
+                },
+                "required": ["email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset email sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password reset email sent"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/forgotPassword/verifyToken": {
+      "post": {
+        "summary": "Verify password reset token",
+        "tags": ["User"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "example": "abc123resetToken"
+                  }
+                },
+                "required": ["token"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token is valid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is valid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Token is invalid or has expired",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is invalid or has expired"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "User login",
+        "tags": ["Auth"],
+        "description": "Authenticate a user and return a JWT token if the credentials are correct.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "johndoe"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password123"
+                  }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful and JWT token issued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Login Success"
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpc19hY2Nlc19yYXciOnRydWV9.6M7L1PLz6Z2_DiHigMm_m9ZvnZkJdRuFY5Q7m7q-IpQ"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Incorrect password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password is incorrect"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "summary": "User logout",
+        "tags": ["Auth"],
+        "description": "Logout the user by removing the JWT token cookie.",
+        "responses": {
+          "200": {
+            "description": "Logout successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Logout Success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monitor": {
+      "get": {
+        "summary": "Retrieve user forms metrics",
+        "tags": ["Monitor"],
+        "description": "Fetch user forms and their status metrics for a specified survey period. Requires Admin role.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "surveyPeriodId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            },
+            "description": "ID of the survey period to filter the forms."
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2"
+            },
+            "description": "ID of the specific user to filter by. If not provided, metrics for all 'Pencacah' users are returned."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of user forms metrics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                      },
+                      "totalAwal": {
+                        "type": "integer",
+                        "example": 50
+                      },
+                      "totalForms": {
+                        "type": "integer",
+                        "example": 20
+                      },
+                      "diterimaCount": {
+                        "type": "integer",
+                        "example": 15
+                      },
+                      "ditolakCount": {
+                        "type": "integer",
+                        "example": 2
+                      },
+                      "belumDiverifikasiCount": {
+                        "type": "integer",
+                        "example": 3
+                      },
+                      "dikirimUlangCount": {
+                        "type": "integer",
+                        "example": 0
+                      },
+                      "persentase": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 40.0
+                      },
+                      "persentase_diterima": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 30.0
+                      },
+                      "persentase_ditolak": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 4.0
+                      },
+                      "persentase_belumDiverifikasi": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 6.0
+                      },
+                      "persentase_dikirimUlang": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 0.0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Survey Period ID is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - User does not have Admin role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monitor_verifikator": {
+      "get": {
+        "summary": "Retrieve metrics for Verifikators and their supervised Pencacahs",
+        "description": "Fetch metrics for Verifikators and their supervised Pencacahs based on a survey period. Requires Admin role.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["Monitor"],
+        "parameters": [
+          {
+            "name": "surveyPeriodId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            },
+            "description": "ID of the survey period to filter the forms."
+          },
+          {
+            "name": "verifikatorId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "4"
+            },
+            "description": "ID of the specific Verifikator to filter by. If not provided, metrics for all Verifikators are returned."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of Verifikator metrics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "verifikatorId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Jane Smith"
+                      },
+                      "totalAwal": {
+                        "type": "integer",
+                        "example": 60
+                      },
+                      "totalForms": {
+                        "type": "integer",
+                        "example": 25
+                      },
+                      "persentase": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 41.67
+                      },
+                      "persentase_diterima": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 25.0
+                      },
+                      "persentase_ditolak": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 5.0
+                      },
+                      "persentase_belumDiverifikasi": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 10.0
+                      },
+                      "persentase_dikirimUlang": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 1.67
+                      },
+                      "diterimaCount": {
+                        "type": "integer",
+                        "example": 15
+                      },
+                      "ditolakCount": {
+                        "type": "integer",
+                        "example": 3
+                      },
+                      "belumDiverifikasiCount": {
+                        "type": "integer",
+                        "example": 6
+                      },
+                      "dikirimUlangCount": {
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Survey Period ID is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - User does not have Admin role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/surveyPeriods": {
       "get": {
         "summary": "Get all Survey Periods",
@@ -288,6 +1437,25 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "apikey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "authorization"
+      },
+
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "token",
+        "description": "Token used for authentication"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "SurveyPeriod": {
         "type": "object",
