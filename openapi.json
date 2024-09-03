@@ -4077,6 +4077,544 @@
           }
         }
       }
+    },
+    "/form/blokV": {
+      "post": {
+        "summary": "Create a new BlokIV entry",
+        "operationId": "createBlokV",
+        "tags": ["BlokV"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to create a new BlokIV entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "integer" },
+                  "bansos_bnpt_pos": { "type": "boolean" },
+                  "pkh": { "type": "boolean" },
+                  "blt": { "type": "boolean" },
+                  "kis": { "type": "boolean" },
+                  "pip": { "type": "boolean" },
+                  "sepeda": { "type": "number" },
+                  "motor": { "type": "number" },
+                  "mobil": { "type": "number" },
+                  "perahu": { "type": "number" },
+                  "tv": { "type": "number" },
+                  "ac": { "type": "number" },
+                  "mesin_cuci": { "type": "number" },
+                  "hp": { "type": "number" },
+                  "water_heater": { "type": "number" },
+                  "wifi": { "type": "number" },
+                  "hp_non_smartphone": { "type": "number" },
+                  "tab": { "type": "number" },
+                  "laptop_komputer": { "type": "number" },
+                  "perhiasan_under_10_gr": { "type": "number" },
+                  "perhiasan_above_10_gr": { "type": "number" },
+                  "sapi": { "type": "number" },
+                  "kambing": { "type": "number" },
+                  "unggas": { "type": "number" },
+                  "ikan": { "type": "number" },
+                  "rumah_lain": { "type": "boolean" }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokIV created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokIV"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "Blok IV failed to create"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an existing BlokIV entry",
+        "operationId": "updateBlokV",
+        "tags": ["BlokV"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to update an existing BlokIV entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "integer" },
+                  "bansos_bnpt_pos": { "type": "boolean" },
+                  "pkh": { "type": "boolean" },
+                  "blt": { "type": "boolean" },
+                  "kis": { "type": "boolean" },
+                  "pip": { "type": "boolean" },
+                  "sepeda": { "type": "number" },
+                  "motor": { "type": "number" },
+                  "mobil": { "type": "number" },
+                  "perahu": { "type": "number" },
+                  "tv": { "type": "number" },
+                  "ac": { "type": "number" },
+                  "mesin_cuci": { "type": "number" },
+                  "hp": { "type": "number" },
+                  "water_heater": { "type": "number" },
+                  "wifi": { "type": "number" },
+                  "hp_non_smartphone": { "type": "number" },
+                  "tab": { "type": "number" },
+                  "laptop_komputer": { "type": "number" },
+                  "perhiasan_under_10_gr": { "type": "number" },
+                  "perhiasan_above_10_gr": { "type": "number" },
+                  "sapi": { "type": "number" },
+                  "kambing": { "type": "number" },
+                  "unggas": { "type": "number" },
+                  "ikan": { "type": "number" },
+                  "rumah_lain": { "type": "boolean" }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokIV updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokIV"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/form/blokVI": {
+      "post": {
+        "summary": "Create a new BlokVI entry",
+        "operationId": "createBlokVI",
+        "tags": ["BlokVI"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to create a new BlokVI entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "string" },
+                  "is_lahan": { "type": "boolean" },
+                  "luas_lahan": { "type": "number", "nullable": true },
+                  "pemanfaatan_lahan": { "type": "string", "nullable": true },
+                  "sawah": { "type": "number" },
+                  "tanah": { "type": "number" }
+                },
+                "required": ["formId", "is_lahan", "sawah", "tanah"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokVI created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "status": { "type": "integer" },
+                    "blok5": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "formId": { "type": "string" },
+                        "is_lahan": { "type": "boolean" },
+                        "luas_lahan": { "type": "number", "nullable": true },
+                        "pemanfaatan_lahan": { "type": "string", "nullable": true },
+                        "sawah": { "type": "number" },
+                        "tanah": { "type": "number" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BlokVI failed to create"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an existing BlokVI entry",
+        "operationId": "updateBlokVI",
+        "tags": ["BlokVI"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to update an existing BlokVI entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "string" },
+                  "is_lahan": { "type": "boolean" },
+                  "luas_lahan": { "type": "number", "nullable": true },
+                  "pemanfaatan_lahan": { "type": "string", "nullable": true },
+                  "sawah": { "type": "number" },
+                  "tanah": { "type": "number" }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokVI updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "status": { "type": "integer" },
+                    "blok5": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "formId": { "type": "string" },
+                        "is_lahan": { "type": "boolean" },
+                        "luas_lahan": { "type": "number", "nullable": true },
+                        "pemanfaatan_lahan": { "type": "string", "nullable": true },
+                        "sawah": { "type": "number" },
+                        "tanah": { "type": "number" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/form/blokVII": {
+      "post": {
+        "summary": "Create a new BlokVII entry",
+        "operationId": "createBlokVII",
+        "tags": ["BlokVII"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to create a new BlokVII entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "string" },
+                  "is_usaha": { "type": "boolean" },
+                  "nama_pemilik": { "type": "string", "nullable": true },
+                  "kepemilikan_usaha": { "type": "string", "nullable": true },
+                  "alamat_usaha": { "type": "string", "nullable": true },
+                  "jenis_usaha": { "type": "string", "nullable": true },
+                  "jumlah_pekerja": { "type": "integer", "nullable": true },
+                  "omzet_usaha": { "type": "number", "nullable": true }
+                },
+                "required": ["formId", "is_usaha"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokVII created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "status": { "type": "integer" },
+                    "blok6": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "formId": { "type": "string" },
+                        "is_usaha": { "type": "boolean" },
+                        "nama_pemilik": { "type": "string", "nullable": true },
+                        "kepemilikan_usaha": { "type": "string", "nullable": true },
+                        "alamat_usaha": { "type": "string", "nullable": true },
+                        "jenis_usaha": { "type": "string", "nullable": true },
+                        "jumlah_pekerja": { "type": "integer", "nullable": true },
+                        "omzet_usaha": { "type": "number", "nullable": true }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BlokVII failed to create"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an existing BlokVII entry",
+        "operationId": "updateBlokVII",
+        "tags": ["BlokVII"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to update an existing BlokVII entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "string" },
+                  "is_usaha": { "type": "boolean" },
+                  "nama_pemilik": { "type": "string", "nullable": true },
+                  "kepemilikan_usaha": { "type": "string", "nullable": true },
+                  "alamat_usaha": { "type": "string", "nullable": true },
+                  "jenis_usaha": { "type": "string", "nullable": true },
+                  "jumlah_pekerja": { "type": "integer", "nullable": true },
+                  "omzet_usaha": { "type": "number", "nullable": true }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokVII updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "status": { "type": "integer" },
+                    "blok6": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "formId": { "type": "string" },
+                        "is_usaha": { "type": "boolean" },
+                        "nama_pemilik": { "type": "string", "nullable": true },
+                        "kepemilikan_usaha": { "type": "string", "nullable": true },
+                        "alamat_usaha": { "type": "string", "nullable": true },
+                        "jenis_usaha": { "type": "string", "nullable": true },
+                        "jumlah_pekerja": { "type": "integer", "nullable": true },
+                        "omzet_usaha": { "type": "number", "nullable": true }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BlokVII failed to update"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/form/blokVIII": {
+      "post": {
+        "summary": "Create a new BlokVIII entry",
+        "operationId": "createBlokVIII",
+        "tags": ["BlokVIII"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to create a new BlokVIII entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "string" },
+                  "catatan": { "type": "string", "nullable": true }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokVIII created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "status": { "type": "integer" },
+                    "blok7": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "formId": { "type": "string" },
+                        "catatan": { "type": "string", "nullable": true }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BlokVIII failed to create"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an existing BlokVIII entry",
+        "operationId": "updateBlokVIII",
+        "tags": ["BlokVIII"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "Data to update an existing BlokVIII entry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": { "type": "string" },
+                  "catatan": { "type": "string", "nullable": true }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokVIII updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "status": { "type": "integer" },
+                    "blok7": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "formId": { "type": "string" },
+                        "catatan": { "type": "string", "nullable": true }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BlokVIII failed to update"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
     }
   },
   "components": {
