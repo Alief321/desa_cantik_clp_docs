@@ -3,7 +3,16 @@
   "info": {
     "title": "Desa Cantik API",
     "version": "1.0.0",
-    "description": "API documentation for Desa Cantik App"
+    "description": "API documentation for Desa Cantik App backend <br><br>**NOTE:** after `blokI`, the route is `+1` from the database. For example: `blokII` in the database is `blokIII` in route to fit in the frontend.",
+    "contact": {
+      "email": "222111873@stis.ac.id",
+      "name": "Aliefta Zulvansyah B"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "termsOfService": "http://swagger.io/terms/"
   },
   "servers": [
     {
@@ -371,7 +380,7 @@
               "type": "string",
               "example": "Buaran"
             },
-            "description": "The name of the hamlet. Use '0' if not applicable."
+            "description": "The name of the hamlet. `null` if not applicable."
           },
           {
             "name": "rt",
@@ -380,7 +389,7 @@
               "type": "string",
               "example": "01"
             },
-            "description": "The neighborhood association. Use '0' if not applicable."
+            "description": "The neighborhood association. `null` if not applicable."
           },
           {
             "name": "rw",
@@ -389,7 +398,7 @@
               "type": "string",
               "example": "01"
             },
-            "description": "The community association. Use '0' if not applicable."
+            "description": "The community association. `null` if not applicable."
           },
           {
             "name": "kode",
@@ -878,7 +887,7 @@
               "type": "string",
               "example": "2"
             },
-            "description": "ID of the specific user to filter by. If not provided, metrics for all 'Pencacah' users are returned."
+            "description": "ID of the specific user to filter by. If not provided, metrics for all `Pencacah` users are returned."
           }
         ],
         "responses": {
@@ -1881,15 +1890,15 @@
                   },
                   "role": {
                     "type": "string",
-                    "description": "The role of the user (e.g., 'Admin', 'Verifikator')."
+                    "description": "The role of the user (e.g., `Admin`, `Verifikator`)."
                   },
                   "id_pengawas": {
                     "type": "integer",
-                    "description": "The supervisor ID, nullable for 'Verifikator' role."
+                    "description": "The supervisor ID, nullable for `Verifikator` role."
                   },
                   "beban_kerja": {
                     "type": "integer",
-                    "description": "The workload of the user, nullable for 'Verifikator' role."
+                    "description": "The workload of the user, nullable for `Verifikator` role."
                   }
                 },
                 "required": ["name", "email", "role"]
@@ -1961,7 +1970,7 @@
       },
       "get": {
         "summary": "List All Users",
-        "description": "Retrieves a list of all users except those with the 'Admin' role.",
+        "description": "Retrieves a list of all users except those with the `Admin` role.",
         "tags": ["User"],
         "responses": {
           "200": {
@@ -2059,15 +2068,15 @@
                   },
                   "role": {
                     "type": "string",
-                    "description": "The role of the user (e.g., 'Admin', 'Verifikator')."
+                    "description": "The role of the user (e.g., `Admin`, `Verifikator`)."
                   },
                   "id_pengawas": {
                     "type": "integer",
-                    "description": "The supervisor ID, nullable for 'Verifikator' role."
+                    "description": "The supervisor ID, nullable for `Verifikator` role."
                   },
                   "beban_kerja": {
                     "type": "integer",
-                    "description": "The workload of the user, nullable for 'Verifikator' role."
+                    "description": "The workload of the user, nullable for `Verifikator` role."
                   },
                   "is_active": {
                     "type": "boolean",
@@ -2149,7 +2158,7 @@
     "/user/status": {
       "patch": {
         "summary": "Update User Status",
-        "description": "Updates the 'is_active' status of a user by ID. Only accessible by Admin users.",
+        "description": "Updates the `is_active` status of a user by ID. Only accessible by Admin users.",
         "tags": ["User"],
         "requestBody": {
           "required": true,
@@ -2164,7 +2173,7 @@
                   },
                   "is_active": {
                     "type": "string",
-                    "description": "The new status of the user. 'true' for active, 'false' for inactive.",
+                    "description": "The new status of the user. `true` for active, `false` for inactive.",
                     "enum": ["true", "false"]
                   }
                 },
@@ -2357,6 +2366,1716 @@
             "bearerAuth": []
           }
         ]
+      }
+    },
+    "/form": {
+      "post": {
+        "summary": "Create a new form",
+        "description": "Creates a new form with the provided user ID and survey period ID.",
+        "operationId": "createForm",
+        "tags": ["Form"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "integer",
+                    "description": "ID of the user creating the form."
+                  },
+                  "surveyPeriodId": {
+                    "type": "integer",
+                    "description": "ID of the survey period."
+                  }
+                },
+                "required": ["userId", "surveyPeriodId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Form created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form created successfully"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "form": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "userId": {
+                          "type": "integer"
+                        },
+                        "surveyPeriodId": {
+                          "type": "integer"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieve forms",
+        "description": "Retrieves forms for a given survey period ID and includes form details.",
+        "operationId": "getForms",
+        "tags": ["Form"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "idSurvey",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forms retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "kuesioner": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "userId": {
+                            "type": "integer"
+                          },
+                          "surveyPeriodId": {
+                            "type": "integer"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "blokII": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "nama": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "namaKK": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid survey period ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid survey period ID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a form",
+        "description": "Deletes a form by ID and associated images.",
+        "operationId": "deleteForm",
+        "tags": ["Form"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Form deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form deleted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/{id}": {
+      "patch": {
+        "summary": "Update a form",
+        "description": "Updates the status of a form to `DIKIRIM_ULANG`. Requires `Pencacah` role.",
+        "operationId": "updateForm",
+        "tags": ["Form"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the form to be updated."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Form updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form berhasil diedit dan dikirim ulang ke verifikator"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "form": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "userId": {
+                          "type": "integer"
+                        },
+                        "surveyPeriodId": {
+                          "type": "integer"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieve a form",
+        "description": "Retrieves the details of a specific form by its ID. Requires `Pencacah` role.",
+        "operationId": "getFormById",
+        "tags": ["Form"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the form to be retrieved."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Form retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "userId": {
+                      "type": "integer"
+                    },
+                    "surveyPeriodId": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "ID not provided",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "ID not provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/{id}/status": {
+      "patch": {
+        "summary": "Update form status",
+        "description": "Updates the status and comment of a form. Requires `Verifikator` role.",
+        "tags": ["Form"],
+        "operationId": "updateFormStatus",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the form to be updated."
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "description": "New status for the form.",
+                    "example": "DITERIMA"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Comment related to the status update.",
+                    "example": "Verified and approved."
+                  }
+                },
+                "required": ["status"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Form updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form updated successfully"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "form": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "userId": {
+                          "type": "integer"
+                        },
+                        "surveyPeriodId": {
+                          "type": "integer"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "comment": {
+                          "type": "string"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/petugas/{id}": {
+      "get": {
+        "summary": "Retrieve forms for a specific user",
+        "description": "Fetches forms associated with a specific user ID. Optionally, the results can be filtered by survey period ID.",
+        "operationId": "getFormsByUser",
+        "tags": ["Form"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the user whose forms are to be retrieved."
+            }
+          },
+          {
+            "name": "idSurvey",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the survey period to filter the forms."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forms retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "kuesionerWithNamaKK": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "ID of the form."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Status of the form.",
+                            "example": "DITERIMA"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Creation timestamp of the form."
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Last update timestamp of the form."
+                          },
+                          "userId": {
+                            "type": "integer",
+                            "description": "ID of the user who created the form."
+                          },
+                          "surveyPeriodId": {
+                            "type": "integer",
+                            "description": "ID of the survey period associated with the form."
+                          },
+                          "comment": {
+                            "type": "string",
+                            "description": "Comment associated with the form."
+                          },
+                          "namaKK": {
+                            "type": "string",
+                            "description": "Name from Blok II, if available."
+                          },
+                          "emptyBlocksMessage": {
+                            "type": "string",
+                            "description": "Message indicating which blocks are empty, if any."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "ID is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Forms not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/kuesioner": {
+      "get": {
+        "summary": "Retrieve a form by ID",
+        "description": "Fetches a form based on the provided form ID. Access is restricted based on user roles and authentication.",
+        "operationId": "getFormById",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["Form"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "ID of the form to retrieve."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Form retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "form": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "ID of the form."
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "Status of the form.",
+                          "example": "BELUM_DIVERIFIKASI"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Creation timestamp of the form."
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Last update timestamp of the form."
+                        },
+                        "userId": {
+                          "type": "integer",
+                          "description": "ID of the user who created the form."
+                        },
+                        "surveyPeriodId": {
+                          "type": "integer",
+                          "description": "ID of the survey period associated with the form."
+                        },
+                        "comment": {
+                          "type": "string",
+                          "description": "Comment associated with the form."
+                        },
+                        "blokI": {
+                          "$ref": "#/components/schemas/BlokI"
+                        },
+                        "blokII": {
+                          "$ref": "#/components/schemas/BlokII"
+                        },
+                        "blokIII": {
+                          "$ref": "#/components/schemas/BlokIII"
+                        },
+                        "blokIV": {
+                          "$ref": "#/components/schemas/BlokIV"
+                        },
+                        "blokV": {
+                          "$ref": "#/components/schemas/BlokV"
+                        },
+                        "blokVI": {
+                          "$ref": "#/components/schemas/BlokVI"
+                        },
+                        "blokVII": {
+                          "$ref": "#/components/schemas/BlokVII"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - ID is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "ID is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Form not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Form not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/blokI": {
+      "post": {
+        "summary": "Create a BlokI record",
+        "description": "Creates a new BlokI record with the provided details.",
+        "operationId": "createBlokI",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["BlokI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dusun": {
+                    "type": "string",
+                    "description": "Dusun of the BlokI record."
+                  },
+                  "rw": {
+                    "type": "string",
+                    "description": "RW of the BlokI record."
+                  },
+                  "rt": {
+                    "type": "string",
+                    "description": "RT of the BlokI record."
+                  },
+                  "alamat": {
+                    "type": "string",
+                    "description": "Address of the BlokI record."
+                  },
+                  "koordinat": {
+                    "type": "string",
+                    "description": "Coordinates of the BlokI record."
+                  },
+                  "formId": {
+                    "type": "integer",
+                    "description": "ID of the form associated with the BlokI record."
+                  }
+                },
+                "required": ["dusun", "rw", "rt", "alamat", "koordinat", "formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokI created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokI"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed to create BlokI",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Blok I failed to create"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a BlokI record",
+        "description": "Updates an existing BlokI record with the provided details.",
+        "operationId": "updateBlokI",
+        "tags": ["BlokI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formId": {
+                    "type": "integer",
+                    "description": "ID of the form associated with the BlokI record."
+                  },
+                  "dusun": {
+                    "type": "string",
+                    "description": "Dusun of the BlokI record."
+                  },
+                  "rw": {
+                    "type": "string",
+                    "description": "RW of the BlokI record."
+                  },
+                  "rt": {
+                    "type": "string",
+                    "description": "RT of the BlokI record."
+                  },
+                  "alamat": {
+                    "type": "string",
+                    "description": "Address of the BlokI record."
+                  },
+                  "koordinat": {
+                    "type": "string",
+                    "description": "Coordinates of the BlokI record."
+                  }
+                },
+                "required": ["formId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokI updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokI"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/blokIII": {
+      "post": {
+        "summary": "Create a BlokIII record",
+        "description": "Creates a new BlokIII record with the provided details.",
+        "operationId": "createBlokIII",
+        "tags": ["BlokIII"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nama": {
+                    "type": "string",
+                    "description": "Name of the individual."
+                  },
+                  "jenis_kelamin": {
+                    "type": "string",
+                    "description": "Gender of the individual."
+                  },
+                  "no_hp": {
+                    "type": "string",
+                    "description": "Phone number of the individual."
+                  },
+                  "no_kk": {
+                    "type": "string",
+                    "description": "Family card number."
+                  },
+                  "nik": {
+                    "type": "string",
+                    "description": "Identification number."
+                  },
+                  "tempat_lahir": {
+                    "type": "string",
+                    "description": "Place of birth."
+                  },
+                  "tanggal_lahir": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date of birth."
+                  },
+                  "status_kk": {
+                    "type": "string",
+                    "description": "Family status."
+                  },
+                  "status_kawin": {
+                    "type": "string",
+                    "description": "Marital status."
+                  },
+                  "kondisi_fisik": {
+                    "type": "string",
+                    "description": "Physical condition."
+                  },
+                  "agama": {
+                    "type": "string",
+                    "description": "Religion."
+                  },
+                  "pendidikan": {
+                    "type": "string",
+                    "description": "Education level."
+                  },
+                  "pekerjaan": {
+                    "type": "string",
+                    "description": "Occupation."
+                  },
+                  "pendapatan": {
+                    "type": "number",
+                    "description": "Income."
+                  },
+                  "pengeluaran": {
+                    "type": "number",
+                    "description": "Expenditure."
+                  },
+                  "ibu": {
+                    "type": "string",
+                    "description": "Mother's name."
+                  },
+                  "ayah": {
+                    "type": "string",
+                    "description": "Father's name."
+                  },
+                  "kartu_identitas": {
+                    "type": "string",
+                    "description": "Identity card type."
+                  },
+                  "jaminan_kesehatan": {
+                    "type": "string",
+                    "description": "Health insurance."
+                  },
+                  "penyakit_kronis": {
+                    "type": "string",
+                    "description": "Chronic diseases."
+                  },
+                  "formId": {
+                    "type": "integer",
+                    "description": "ID of the form associated with the BlokIII record."
+                  },
+                  "is_under_four": {
+                    "type": "boolean",
+                    "description": "Indicates if the individual is under four years old."
+                  },
+                  "order": {
+                    "type": "integer",
+                    "description": "Order of the record."
+                  }
+                },
+                "required": ["nama", "jenis_kelamin", "no_kk", "nik", "tempat_lahir", "tanggal_lahir", "status_kk", "status_kawin", "kondisi_fisik", "agama", "formId", "order"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokIII created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokII"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a BlokIII record",
+        "description": "Updates an existing BlokIII record with the provided details.",
+        "operationId": "updateBlokIII",
+        "tags": ["BlokIII"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nama": {
+                    "type": "string",
+                    "description": "Name of the individual."
+                  },
+                  "jenis_kelamin": {
+                    "type": "string",
+                    "description": "Gender of the individual."
+                  },
+                  "no_hp": {
+                    "type": "string",
+                    "description": "Phone number of the individual."
+                  },
+                  "no_kk": {
+                    "type": "string",
+                    "description": "Family card number."
+                  },
+                  "nik": {
+                    "type": "string",
+                    "description": "Identification number."
+                  },
+                  "tempat_lahir": {
+                    "type": "string",
+                    "description": "Place of birth."
+                  },
+                  "tanggal_lahir": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date of birth."
+                  },
+                  "status_kk": {
+                    "type": "string",
+                    "description": "Family status."
+                  },
+                  "status_kawin": {
+                    "type": "string",
+                    "description": "Marital status."
+                  },
+                  "kondisi_fisik": {
+                    "type": "string",
+                    "description": "Physical condition."
+                  },
+                  "agama": {
+                    "type": "string",
+                    "description": "Religion."
+                  },
+                  "pendidikan": {
+                    "type": "string",
+                    "description": "Education level."
+                  },
+                  "pekerjaan": {
+                    "type": "string",
+                    "description": "Occupation."
+                  },
+                  "pendapatan": {
+                    "type": "number",
+                    "description": "Income."
+                  },
+                  "pengeluaran": {
+                    "type": "number",
+                    "description": "Expenditure."
+                  },
+                  "ibu": {
+                    "type": "string",
+                    "description": "Mother's name."
+                  },
+                  "ayah": {
+                    "type": "string",
+                    "description": "Father's name."
+                  },
+                  "kartu_identitas": {
+                    "type": "string",
+                    "description": "Identity card type."
+                  },
+                  "jaminan_kesehatan": {
+                    "type": "string",
+                    "description": "Health insurance."
+                  },
+                  "penyakit_kronis": {
+                    "type": "string",
+                    "description": "Chronic diseases."
+                  },
+                  "formId": {
+                    "type": "integer",
+                    "description": "ID of the form associated with the BlokIII record."
+                  },
+                  "is_under_four": {
+                    "type": "boolean",
+                    "description": "Indicates if the individual is under four years old."
+                  },
+                  "order": {
+                    "type": "integer",
+                    "description": "Order of the record."
+                  }
+                },
+                "required": ["formId", "order"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "BlokIII updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokII"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/form/blokIV": {
+      "post": {
+        "summary": "Create or update BlokIV data",
+        "description": "Create or update BlokIV data.",
+        "operationId": "createBlokIV",
+        "tags": ["BlokIV"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status_rumah": {
+                    "type": "string"
+                  },
+                  "bukti_kepemilikan": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "luas_bangunan": {
+                    "type": "string"
+                  },
+                  "luas_lahan": {
+                    "type": "string"
+                  },
+                  "jumlah_kamar": {
+                    "type": "integer"
+                  },
+                  "dinding_terluas": {
+                    "type": "string"
+                  },
+                  "lantai_terluas": {
+                    "type": "string"
+                  },
+                  "atap_terluas": {
+                    "type": "string"
+                  },
+                  "jamban": {
+                    "type": "string"
+                  },
+                  "daya_listrik": {
+                    "type": "string"
+                  },
+                  "sumber_air_minum": {
+                    "type": "string"
+                  },
+                  "bahan_bakar_masak": {
+                    "type": "string"
+                  },
+                  "formId": {
+                    "type": "integer"
+                  },
+                  "foto_1": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "foto_2": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "foto_3": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful creation or update",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokIII"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update BlokIV data",
+        "description": "Update BlokIV data. The response is referenced from BlokIII schema.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["BlokIV"],
+
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status_rumah": {
+                    "type": "string"
+                  },
+                  "bukti_kepemilikan": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "luas_bangunan": {
+                    "type": "string"
+                  },
+                  "luas_lahan": {
+                    "type": "string"
+                  },
+                  "jumlah_kamar": {
+                    "type": "integer"
+                  },
+                  "dinding_terluas": {
+                    "type": "string"
+                  },
+                  "lantai_terluas": {
+                    "type": "string"
+                  },
+                  "atap_terluas": {
+                    "type": "string"
+                  },
+                  "jamban": {
+                    "type": "string"
+                  },
+                  "daya_listrik": {
+                    "type": "string"
+                  },
+                  "sumber_air_minum": {
+                    "type": "string"
+                  },
+                  "bahan_bakar_masak": {
+                    "type": "string"
+                  },
+                  "formId": {
+                    "type": "integer"
+                  },
+                  "foto_1": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "foto_2": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "foto_3": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful update",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlokIII"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "BlokIV not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete BlokIV data",
+        "description": "Delete BlokIV data.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["BlokIV"],
+        "parameters": [
+          {
+            "name": "formId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful deletion"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "BlokIV not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   },
@@ -2728,7 +4447,7 @@
             "type": "integer"
           }
         },
-        "description": "A model representing Blok II data (Informasi Rinci Anggota Keluarga). The combination of 'formId' and 'order' must be unique."
+        "description": "A model representing Blok II data (Informasi Rinci Anggota Keluarga). The combination of `formId` and `order` must be unique."
       },
       "BlokIII": {
         "type": "object",
