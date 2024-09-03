@@ -14,7 +14,9 @@
     <script>
       window.onload = () => {
         window.ui = SwaggerUIBundle({
+          // use this url when in github pages
           // url: 'https://raw.githubusercontent.com/Alief321/desa_cantik_clp_docs/openapi.json',
+          // use this url when in local development
           url: '/openapi.json',
           dom_id: '#swagger-ui',
           presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],

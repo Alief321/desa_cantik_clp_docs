@@ -1161,19 +1161,102 @@
         }
       }
     },
-    "/surveyPeriods": {
+    "/period": {
       "get": {
-        "summary": "Get all Survey Periods",
-        "operationId": "getSurveyPeriods",
+        "summary": "Retrieve survey periods",
+        "tags": ["Survey Period"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "description": "Fetch survey periods based on optional filters for start and end dates and verification status.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "description": "If true, filter for periods with start date less than or equal to the current date."
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "example": true
+            },
+            "description": "If true, filter for periods with end date less than or equal to the current date."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            },
+            "description": "Filter by verification status. 1 for verified, 0 for not verified."
+          }
+        ],
         "responses": {
           "200": {
-            "description": "A list of Survey Periods",
+            "description": "Successful retrieval of survey periods",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SurveyPeriod"
+                  "type": "object",
+                  "properties": {
+                    "surveyPeriod": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Survey Period 1"
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-01-01"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-12-31"
+                          },
+                          "is_verif_end": {
+                            "type": "boolean",
+                            "example": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - User is not authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
                   }
                 }
               }
@@ -1182,135 +1265,92 @@
         }
       },
       "post": {
-        "summary": "Create a new Survey Period",
-        "operationId": "createSurveyPeriod",
+        "summary": "Create a new survey period",
+        "tags": ["Survey Period"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "description": "Create a new survey period with the provided name, start date, and end date. Requires Admin role.",
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SurveyPeriod"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Survey Period created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SurveyPeriod"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/surveyPeriods/{id}": {
-      "get": {
-        "summary": "Get a Survey Period by ID",
-        "operationId": "getSurveyPeriodById",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A Survey Period",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SurveyPeriod"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Survey Period not found"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update a Survey Period",
-        "operationId": "updateSurveyPeriod",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SurveyPeriod"
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Survey Period 2"
+                  },
+                  "startDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-01"
+                  },
+                  "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-12-31"
+                  }
+                },
+                "required": ["name", "startDate", "endDate"]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Survey Period updated",
+            "description": "Successful creation of survey period",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SurveyPeriod"
+                  "type": "object",
+                  "properties": {
+                    "surveyPeriod": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 2
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Survey Period 2"
+                        },
+                        "startDate": {
+                          "type": "string",
+                          "format": "date",
+                          "example": "2024-01-01"
+                        },
+                        "endDate": {
+                          "type": "string",
+                          "format": "date",
+                          "example": "2024-12-31"
+                        },
+                        "is_verif_end": {
+                          "type": "boolean",
+                          "example": false
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           },
-          "404": {
-            "description": "Survey Period not found"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete a Survey Period",
-        "operationId": "deleteSurveyPeriod",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Survey Period deleted"
-          },
-          "404": {
-            "description": "Survey Period not found"
-          }
-        }
-      }
-    },
-    "/forms": {
-      "get": {
-        "summary": "Get all Forms",
-        "operationId": "getForms",
-        "responses": {
-          "200": {
-            "description": "A list of Forms",
+          "401": {
+            "description": "Unauthorized - User does not have Admin role",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Form"
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
                   }
                 }
               }
@@ -1318,25 +1358,88 @@
           }
         }
       },
-      "post": {
-        "summary": "Create a new Form",
-        "operationId": "createForm",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Form"
-              }
-            }
+      "delete": {
+        "summary": "Delete a survey period",
+        "tags": ["Survey Period"],
+        "security": [
+          {
+            "bearerAuth": []
           }
-        },
+        ],
+        "description": "Delete a survey period by its ID. This will also delete associated forms and their images. Requires Admin role.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            },
+            "description": "ID of the survey period to delete."
+          }
+        ],
         "responses": {
-          "201": {
-            "description": "Form created",
+          "200": {
+            "description": "Successful deletion of survey period and associated data",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Form"
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Survey period and associated data deleted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - User does not have Admin role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Survey period not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "SurveyPeriod not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Error deleting survey period or images",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to delete images"
+                    }
+                  }
                 }
               }
             }
@@ -1344,95 +1447,916 @@
         }
       }
     },
-    "/forms/{id}": {
+    "/period/all": {
       "get": {
-        "summary": "Get a Form by ID",
-        "operationId": "getFormById",
-        "parameters": [
+        "summary": "Retrieve all survey periods",
+        "tags": ["Survey Period"],
+        "security": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
+            "bearerAuth": []
+          }
+        ],
+        "description": "Fetch all survey periods, ordered by start date. Requires Admin role.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of all survey periods",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "surveyPeriod": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Survey Period 1"
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-01-01"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-12-31"
+                          },
+                          "is_verif_end": {
+                            "type": "boolean",
+                            "example": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
+          },
+          "401": {
+            "description": "Unauthorized - User does not have Admin role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/period/show": {
+      "get": {
+        "summary": "Retrieve all survey periods",
+        "description": "Fetch all survey periods, ordered by start date. Requires API key authentication.",
+        "tags": ["Survey Period"],
+        "security": [
+          {
+            "apikey": []
           }
         ],
         "responses": {
           "200": {
-            "description": "A Form",
+            "description": "Successful retrieval of all survey periods",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Form"
+                  "type": "object",
+                  "properties": {
+                    "surveyPeriod": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Survey Period 1"
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-01-01"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-12-31"
+                          },
+                          "is_verif_end": {
+                            "type": "boolean",
+                            "example": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/period/download": {
+      "get": {
+        "summary": "Download survey data individu in CSV format",
+        "tags": ["Download", "Survey Period"],
+        "description": "Fetch and download survey data individu for a specific survey period as a CSV file. Requires authentication with a bearer token or API key.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            },
+            "description": "ID of the survey period for which data is to be downloaded."
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful download of CSV data",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid surveyPeriodId parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "surveyPeriodId is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
                 }
               }
             }
           },
           "404": {
-            "description": "Form not found"
+            "description": "Not Found - SurveyPeriod not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "SurveyPeriod not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Error generating CSV",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
-      },
-      "put": {
-        "summary": "Update a Form",
-        "operationId": "updateForm",
+      }
+    },
+
+    "/period/download/data-agregat-individu": {
+      "get": {
+        "summary": "Download aggregated individual data in CSV format",
+        "description": "Downloads aggregated individual data for a given survey period in CSV format.",
+        "tags": ["Download", "Survey Period"],
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "example": 1
+            },
+            "description": "The ID of the survey period."
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CSV file containing the aggregated individual data.",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request if surveyPeriodId is missing or invalid."
+          },
+          "401": {
+            "description": "Unauthorized if the user does not have the correct role or access rights."
+          },
+          "404": {
+            "description": "Not found if no data is available for the given survey period."
+          },
+          "500": {
+            "description": "Internal server error if something goes wrong during CSV generation."
+          }
+        }
+      }
+    },
+    "/period/download/data-agregat-keluarga": {
+      "get": {
+        "summary": "Download Aggregated Family Data",
+        "description": "Generates a CSV file containing aggregated data for a specific survey period.",
+        "tags": ["Download", "Survey Period"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "example": 1,
+              "description": "The ID of the survey period for which data is to be exported."
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Successful response with CSV file.",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. surveyPeriodId parameter is missing or invalid."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing authentication token."
+          },
+          "404": {
+            "description": "Not Found. SurveyPeriod not found for the provided ID."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while generating the CSV file."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
+    "/profile": {
+      "get": {
+        "summary": "Get User Profile",
+        "tags": ["User"],
+        "description": "Retrieves the profile information for a specific user by ID.",
+        "responses": {
+          "200": {
+            "description": "Successful response with user profile information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Invalid or missing ID parameter."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing authentication token."
+          },
+          "404": {
+            "description": "Not Found. User not found for the provided ID."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while retrieving the user profile."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
+    "/user": {
+      "post": {
+        "summary": "Create a New User",
+        "description": "Creates a new user with the provided details. An email will be sent to the user with their credentials.",
+        "tags": ["User"],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Form"
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The full name of the user."
+                  },
+                  "noHp": {
+                    "type": "string",
+                    "description": "The phone number of the user."
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "The email address of the user."
+                  },
+                  "role": {
+                    "type": "string",
+                    "description": "The role of the user (e.g., 'Admin', 'Verifikator')."
+                  },
+                  "id_pengawas": {
+                    "type": "integer",
+                    "description": "The supervisor ID, nullable for 'Verifikator' role."
+                  },
+                  "beban_kerja": {
+                    "type": "integer",
+                    "description": "The workload of the user, nullable for 'Verifikator' role."
+                  }
+                },
+                "required": ["name", "email", "role"]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Form updated",
+            "description": "Successful response with the created user details.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Form"
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User created successfully"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "noHp": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        },
+                        "id_pengawas": {
+                          "type": "integer"
+                        },
+                        "beban_kerja": {
+                          "type": "integer"
+                        },
+                        "is_active": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           },
-          "404": {
-            "description": "Form not found"
+          "401": {
+            "description": "Unauthorized. Invalid or missing authentication token."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while creating the user."
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
-      "delete": {
-        "summary": "Delete a Form",
-        "operationId": "deleteForm",
+      "get": {
+        "summary": "List All Users",
+        "description": "Retrieves a list of all users except those with the 'Admin' role.",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "noHp": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "role": {
+                        "type": "string"
+                      },
+                      "id_pengawas": {
+                        "type": "integer"
+                      },
+                      "beban_kerja": {
+                        "type": "integer"
+                      },
+                      "is_active": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Only Admin can access this endpoint."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while retrieving the list of users."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update a User",
+        "description": "Updates the details of an existing user by ID. Only accessible by Admin users.",
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "description": "The ID of the user to be updated."
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The full name of the user."
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "The username of the user."
+                  },
+                  "noHp": {
+                    "type": "string",
+                    "description": "The phone number of the user."
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "The email address of the user."
+                  },
+                  "role": {
+                    "type": "string",
+                    "description": "The role of the user (e.g., 'Admin', 'Verifikator')."
+                  },
+                  "id_pengawas": {
+                    "type": "integer",
+                    "description": "The supervisor ID, nullable for 'Verifikator' role."
+                  },
+                  "beban_kerja": {
+                    "type": "integer",
+                    "description": "The workload of the user, nullable for 'Verifikator' role."
+                  },
+                  "is_active": {
+                    "type": "boolean",
+                    "description": "The activation status of the user."
+                  }
+                },
+                "required": ["name", "username", "noHp", "email", "role", "is_active"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with the updated user details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "User updated successfully"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "noHp": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        },
+                        "id_pengawas": {
+                          "type": "integer"
+                        },
+                        "beban_kerja": {
+                          "type": "integer"
+                        },
+                        "is_active": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Invalid or missing ID parameter."
+          },
+          "401": {
+            "description": "Unauthorized. Only Admin can access this endpoint."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while updating the user."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
+    "/user/status": {
+      "patch": {
+        "summary": "Update User Status",
+        "description": "Updates the 'is_active' status of a user by ID. Only accessible by Admin users.",
+        "tags": ["User"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "The ID of the user whose status is to be updated."
+                  },
+                  "is_active": {
+                    "type": "string",
+                    "description": "The new status of the user. 'true' for active, 'false' for inactive.",
+                    "enum": ["true", "false"]
+                  }
+                },
+                "required": ["id", "is_active"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with the updated user details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Status user updated successfully"
+                    },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "noHp": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        },
+                        "id_pengawas": {
+                          "type": "integer"
+                        },
+                        "beban_kerja": {
+                          "type": "integer"
+                        },
+                        "is_active": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request. Invalid or missing parameters."
+          },
+          "401": {
+            "description": "Unauthorized. Only Admin can access this endpoint."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while updating the user status."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
+    "/verifikator": {
+      "get": {
+        "summary": "Retrieve Forms Managed by Verifier",
+        "description": "Fetches forms managed by a verifier identified by `id_pengawas`. Optionally filters by `idSurvey`.",
+        "tags": ["Verifikator", "User"],
+        "parameters": [
+          {
+            "name": "id_pengawas",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "The ID of the verifier."
+            }
+          },
+          {
+            "name": "idSurvey",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Optional. The ID of the survey period to filter forms."
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Form deleted"
+          "200": {
+            "description": "Successful response with the list of forms managed by the verifier.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "kuesioner": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "userId": {
+                            "type": "integer"
+                          },
+                          "surveyPeriodId": {
+                            "type": "integer"
+                          },
+                          "blokI": {
+                            "type": "string"
+                          },
+                          "blokII": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "nama": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "blokIII": {
+                            "type": "string"
+                          },
+                          "blokIV": {
+                            "type": "string"
+                          },
+                          "blokV": {
+                            "type": "string"
+                          },
+                          "blokVI": {
+                            "type": "string"
+                          },
+                          "blokVII": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": ["DITOLAK", "BELUM_DIVERIFIKASI", "DITERIMA", "DIKIRIM_ULANG"]
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "namaKK": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
-          "404": {
-            "description": "Form not found"
+          "400": {
+            "description": "Bad Request. Invalid or missing `id_pengawas`."
+          },
+          "401": {
+            "description": "Unauthorized. Only Verifikator role users can access this endpoint."
+          },
+          "500": {
+            "description": "Internal Server Error. An error occurred while retrieving the forms."
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
