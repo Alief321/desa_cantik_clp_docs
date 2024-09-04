@@ -3451,6 +3451,11 @@
         "description": "Updates an existing BlokI record with the provided details.",
         "operationId": "updateBlokI",
         "tags": ["BlokI"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -3540,6 +3545,11 @@
         "description": "Creates a new BlokIII record with the provided details.",
         "operationId": "createBlokIII",
         "tags": ["BlokIII"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -3696,6 +3706,11 @@
         "description": "Updates an existing BlokIII record with the provided details.",
         "operationId": "updateBlokIII",
         "tags": ["BlokIII"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
